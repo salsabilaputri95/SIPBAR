@@ -108,15 +108,6 @@ Seluruh data historis dari berkas `SIPBAR.xlsm` telah dimigrasikan 100% secara a
 ```text
 SIPBAR/
 ├── data/                         # Data ekstraksi historis JSON
-├── docs/                         # Dokumentasi lengkap sistem
-│   ├── AGENT.md                  # Aturan kerja agen & pengembang
-│   ├── API.md                    # Kontrak API & Server Actions
-│   ├── Arsitektur.md             # Blueprint arsitektur teknis
-│   ├── DATABASE.md               # Skema database & kamus data
-│   ├── DEPLOYMENT_GUIDE.md       # Panduan deploy server Ubuntu & Ngrok
-│   ├── FASE_PENGERJAAN.md        # Rencana kerja & checklist fase
-│   ├── PRD.md                    # Product Requirements Document
-│   └── SYSTEM_DESIGN.md          # Desain sistem & alur bisnis
 ├── prisma/
 │   ├── schema.prisma             # Skema Prisma ORM PostgreSQL
 │   └── seed.ts                   # Seeder master referensi & user
@@ -201,18 +192,6 @@ docker compose -f docker-compose.prod.yml exec web npx prisma migrate deploy
 # Import data awal Excel
 docker compose -f docker-compose.prod.yml exec web node scripts/migrate-excel.mjs
 ```
-
-*Untuk panduan lengkap setup Ngrok dan Backup Cron Job di Ubuntu Server, lihat: [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md).*
-
----
-
-## 🔑 8. Kredensial Akun Pengguna Bawaan
-
-| Peran | Username | Password Default | Hak Akses |
-| :--- | :--- | :--- | :--- |
-| **Super Admin IT** | `superadmin` | `superadmin123` | Akses Penuh, Manajemen User & Konfigurasi |
-| **Admin Gudang** | `admingudang` | `admin123` | Inventaris, Transaksi Masuk/Keluar, Berita Acara, Laporan |
-| **Pegawai BPS** | `pegawai` | `pegawai123` | Pencarian Mandiri Katalog Persediaan (Read-Only) |
 
 ---
 

@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Documentation (Internal only, do not upload to GitHub)
+/docs/
+~$SIPBAR.xlsm
+
 # System / IDE / Agent scratch
 .idea/
 .vscode/
@@ -48,3 +52,4 @@ next-env.d.ts
 vba_dump.txt
 extract_vba.py
 temp_extract/
+
