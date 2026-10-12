@@ -1,0 +1,180 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN_GUDANG
+  PEGAWAI
+}
+
+model User {
+  id              String            @id @default(cuid())
+  username        String            @unique
+  name            String
+  nip             String?           @unique
+  password        String            // Hashed using bcrypt
+  role            Role              @default(PEGAWAI)
+  avatar          String?
+  
+  fungsiId        String?           @map("fungsi_id")
+  fungsi          Fungsi?           @relation(fields: [fungsiId], references: [id], onDelete: Restrict)
+  
+  transaksiMasuk  TransaksiMasuk[]  @relation("CreatedByMasuk")
+  transaksiKeluar TransaksiKeluar[] @relation("CreatedByKeluar")
+  
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Fungsi {
+  id              String            @id @default(cuid())
+  nama            String            @unique // e.g. UMUM, PRODUKSI, SOSIAL, DISTRIBUSI, NERACA, IPDS, dll
+  kode            String            @unique
+  
+  users           User[]
+  transaksiKeluar TransaksiKeluar[]
+
+  @@map("fungsi")
+}
+
+model Kategori {
+  id          String    @id @default(cuid())
+  nama        String    @unique // e.g. Kertas HVS, Tinta/Toner Printer, Stopmap
+  deskripsi   String?
+  
+  barang      Barang[]
+
+  @@map("kategori")
+}
+
+model Satuan {
+  id          String    @id @default(cuid())
+  nama        String    @unique // e.g. Rim, Botol, Buah, Pack, Box
+  
+  barang      Barang[]
+
+  @@map("satuan")
+}
+
+model Gudang {
+  id          String    @id @default(cuid())
+  nama        String    @unique // e.g. Gudang 1, Gudang 2, Gudang 3
+  lokasi      String?
+  
+  barang      Barang[]
+
+  @@map("gudang")
+}
+
+model Barang {
+  id              String            @id @default(cuid())
+  kodeBarang      String            @unique @map("kode_barang") // e.g. ID-1000001
+  namaBarang      String            @map("nama_barang")
+  
+  kategoriId      String            @map("kategori_id")
+  kategori        Kategori          @relation(fields: [kategoriId], references: [id], onDelete: Restrict)
+  
+  satuanId        String            @map("satuan_id")
+  satuan          Satuan            @relation(fields: [satuanId], references: [id], onDelete: Restrict)
+  
+  gudangId        String            @map("gudang_id")
+  gudang          Gudang            @relation(fields: [gudangId], references: [id], onDelete: Restrict)
+  
+  stok            Int               @default(0) // Saldo fisik real-time
+  minStok         Int               @default(5) @map("min_stok") // Ambang batas peringatan stok kritis
+  hargaEstimasi   Decimal?          @map("harga_estimasi") @db.Decimal(15, 2)
+  gambarUrl       String?           @map("gambar_url")
+  
+  transaksiMasuk  TransaksiMasuk[]
+  transaksiKeluar TransaksiKeluar[]
+  
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  @@index([namaBarang])
+  @@index([kategoriId])
+  @@index([gudangId])
+  @@map("barang")
+}
+
+model TransaksiMasuk {
+  id              String    @id @default(cuid())
+  kodeTransaksi   String    @unique @map("kode_transaksi") // e.g. BM-202610-0001
+  tanggal         DateTime  @default(now())
+  
+  barangId        String    @map("barang_id")
+  barang          Barang    @relation(fields: [barangId], references: [id], onDelete: Restrict)
+  
+  jumlahMasuk     Int       @map("jumlah_masuk")
+  hargaBeli       Decimal?  @map("harga_beli") @db.Decimal(15, 2)
+  sumberPengadaan String?   @map("sumber_pengadaan")
+  keterangan      String?
+  
+  createdById     String    @map("created_by_id")
+  createdBy       User      @relation("CreatedByMasuk", fields: [createdById], references: [id], onDelete: Restrict)
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([tanggal])
+  @@index([barangId])
+  @@map("transaksi_masuk")
+}
+
+model TransaksiKeluar {
+  id              String          @id @default(cuid())
+  kodeTransaksi   String          @unique @map("kode_transaksi") // e.g. BK-202610-0001
+  tanggal         DateTime        @default(now())
+  
+  barangId        String          @map("barang_id")
+  barang          Barang          @relation(fields: [barangId], references: [id], onDelete: Restrict)
+  
+  jumlahKeluar    Int             @map("jumlah_keluar")
+  penerimaNama    String          @map("penerima_nama")
+  penerimaNip     String?         @map("penerima_nip")
+  
+  fungsiId        String          @map("fungsi_id")
+  fungsi          Fungsi          @relation(fields: [fungsiId], references: [id], onDelete: Restrict)
+  
+  keterangan      String?
+  
+  tandaTerimaId   String?         @map("tanda_terima_id")
+  tandaTerima     TandaTerima?    @relation(fields: [tandaTerimaId], references: [id], onDelete: SetNull)
+  
+  createdById     String          @map("created_by_id")
+  createdBy       User            @relation("CreatedByKeluar", fields: [createdById], references: [id], onDelete: Restrict)
+  
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  @@index([tanggal])
+  @@index([barangId])
+  @@index([fungsiId])
+  @@index([tandaTerimaId])
+  @@map("transaksi_keluar")
+}
+
+model TandaTerima {
+  id              String            @id @default(cuid())
+  nomorDokumen    String            @unique @map("nomor_dokumen") // e.g. TT-202610-0001
+  tanggalDokumen  DateTime          @default(now()) @map("tanggal_dokumen")
+  
+  items           TransaksiKeluar[]
+  
+  kasubbagNama    String            @default("Imaniar Dwi Aryanti, S.TP") @map("kasubbag_nama")
+  kasubbagNip     String?           @map("kasubbag_nip")
+  kasubbagJabatan String            @default("Kepala Subbagian Umum BPS Kabupaten Jeneponto") @map("kasubbag_jabatan")
+  
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  @@map("tanda_terima")
+}

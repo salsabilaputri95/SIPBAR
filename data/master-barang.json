@@ -1,0 +1,2846 @@
+[
+  {
+    "rowNumber": 4,
+    "kode": "ID-1000001",
+    "nama": "Kertas A4 75 Gsm",
+    "kategori": "Kertas HVS",
+    "satuan": "Rim",
+    "gudang": "Gudang 2",
+    "stok": 6
+  },
+  {
+    "rowNumber": 5,
+    "kode": "ID-1000002",
+    "nama": "Tinta Printer Epson 008 Black",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 6,
+    "kode": "ID-1000003",
+    "nama": "Tinta Brother",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 7,
+    "kode": "ID-1000004",
+    "nama": "Amplop Panjang",
+    "kategori": "Amplop",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 8,
+    "kode": "ID-1000005",
+    "nama": "Lakban bening 5 Cm",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 9,
+    "kode": "ID-1000006",
+    "nama": "MAP BPS",
+    "kategori": "Stopmap",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 10,
+    "kode": "ID-1000007",
+    "nama": "Kertas F4 75 Gsm",
+    "kategori": "Kertas HVS",
+    "satuan": "Rim",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 11,
+    "kode": "ID-1000008",
+    "nama": "Tinta Printer Epson 008 Cyan",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 8
+  },
+  {
+    "rowNumber": 12,
+    "kode": "ID-1000009",
+    "nama": "Tinta Printer Epson 008 Magenta",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 13,
+    "kode": "ID-1000010",
+    "nama": "Tinta Printer Epson 008 Yellow",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 14,
+    "kode": "ID-1000011",
+    "nama": "Tinta Printer Epson 003 Black",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 15,
+    "kode": "ID-1000012",
+    "nama": "Tinta Printer Epson 003 Cyan",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 16,
+    "kode": "ID-1000013",
+    "nama": "Tinta Printer Epson 003 Magenta",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 17,
+    "kode": "ID-1000014",
+    "nama": "Tinta Printer Epson 003 Yellow",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 18,
+    "kode": "ID-1000015",
+    "nama": "Tinta Printer Epson T6641 Black",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 19,
+    "kode": "ID-1000016",
+    "nama": "Tinta Printer Epson T6642 Cyan",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 20,
+    "kode": "ID-1000017",
+    "nama": "Tinta Printer Epson T6643 Magenta",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 21,
+    "kode": "ID-1000018",
+    "nama": "Tinta Printer Epson T6644 Yellow",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 22,
+    "kode": "ID-1000019",
+    "nama": "Box Arsip M",
+    "kategori": "Perlengkapan Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 23,
+    "kode": "ID-1000020",
+    "nama": "Box Arsip L",
+    "kategori": "Perlengkapan Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 24,
+    "kode": "ID-1000021",
+    "nama": "Amplop Airmail EV 90",
+    "kategori": "Amplop",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 25,
+    "kode": "ID-1000022",
+    "nama": "Map Plastik Jepit Seagul",
+    "kategori": "Stopmap",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 26,
+    "kode": "ID-1000023",
+    "nama": "Map Folio Bindex",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 27,
+    "kode": "ID-1000024",
+    "nama": "Standard Pen - Mojito 0.5 Gel Black",
+    "kategori": "Pulpen",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 28,
+    "kode": "ID-1000025",
+    "nama": "Standard Elite Bold",
+    "kategori": "Pulpen",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 29,
+    "kode": "ID-1000026",
+    "nama": "Standard Bold Liner RFL 1.0",
+    "kategori": "Pulpen",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 30,
+    "kode": "ID-1000027",
+    "nama": "Box File Bantex 4021 Purple",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 31,
+    "kode": "ID-1000028",
+    "nama": "Box File Bantex 4011 Biru",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 32,
+    "kode": "ID-1000029",
+    "nama": "Map Batik Holog Besco BC-8003",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 33,
+    "kode": "ID-1000030",
+    "nama": "Kertas Linen F4 Tebal",
+    "kategori": "Kertas Cover",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 34,
+    "kode": "ID-1000031",
+    "nama": "Staples Greebel No. 10",
+    "kategori": "Isi Staples",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 35,
+    "kode": "ID-1000032",
+    "nama": "Binder Clip Joyko 280",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 36,
+    "kode": "ID-1000033",
+    "nama": "Penghapus Kenko",
+    "kategori": "Penghapus/Korektor",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 37,
+    "kode": "ID-1000034",
+    "nama": "Greebel Stapler  HD-10ED",
+    "kategori": "Staples",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 38,
+    "kode": "ID-1000035",
+    "nama": "Pensil Joyko P-88 2B",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Kotak",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 39,
+    "kode": "ID-1000036",
+    "nama": "Pensil Joyko P-93 2B",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Kotak",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 40,
+    "kode": "ID-1000037",
+    "nama": "Tri Tape Lakban Bening",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 41,
+    "kode": "ID-1000038",
+    "nama": "Printech Lakban Bening 48 MMX",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 42,
+    "kode": "ID-1000039",
+    "nama": "Binder Clips kenko 260",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 7
+  },
+  {
+    "rowNumber": 43,
+    "kode": "ID-1000040",
+    "nama": "Penghapus Kenko SP-80R",
+    "kategori": "Penghapus/Korektor",
+    "satuan": "Toples",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 44,
+    "kode": "ID-1000041",
+    "nama": "Kenko No.5 Jmb@10P.Clips Bm",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 45,
+    "kode": "ID-1000042",
+    "nama": "Binder Clip Kenko 111",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 46,
+    "kode": "ID-1000043",
+    "nama": "Binder Clip 155",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 47,
+    "kode": "ID-1000044",
+    "nama": "Binder Clip Joyko 260",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 48,
+    "kode": "ID-1000045",
+    "nama": "Lakban Bening 2 Inci",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 49,
+    "kode": "ID-1000046",
+    "nama": "Gunting KA-838",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 50,
+    "kode": "ID-1000047",
+    "nama": "Gunting KC-888",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 51,
+    "kode": "ID-1000048",
+    "nama": "Cutter V-Tec Ct-8801",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 52,
+    "kode": "ID-1000049",
+    "nama": "Amplop Paperline  ENV 110",
+    "kategori": "Amplop",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 53,
+    "kode": "ID-1000050",
+    "nama": "BAG Folder Imco IM-107A Bag 2K",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 54,
+    "kode": "ID-1000051",
+    "nama": "Sarung Tangan Micromate",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 55,
+    "kode": "ID-1000052",
+    "nama": "Sapu Plafo Dragon",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 56,
+    "kode": "ID-1000053",
+    "nama": "Pembersih Keramik",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 57,
+    "kode": "ID-1000054",
+    "nama": "Jolly Kiloan",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 58,
+    "kode": "ID-1000055",
+    "nama": "Multi MP-08 Kiloan",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 6
+  },
+  {
+    "rowNumber": 59,
+    "kode": "ID-1000056",
+    "nama": "Lap Kuning Besar",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 60,
+    "kode": "ID-1000057",
+    "nama": "Serbet Bintang Mutiara",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 61,
+    "kode": "ID-1000058",
+    "nama": "Spons Bamboo",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 62,
+    "kode": "ID-1000059",
+    "nama": "Pembersih Jendela",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 63,
+    "kode": "ID-1000060",
+    "nama": "Sapu Bulu Ayam",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 64,
+    "kode": "ID-1000061",
+    "nama": "Spon Kitchen Mate",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 65,
+    "kode": "ID-1000062",
+    "nama": "Pembersih Kaca 324 IPR",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 66,
+    "kode": "ID-1000063",
+    "nama": "Ball Toilet K-31",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 67,
+    "kode": "ID-1000064",
+    "nama": "Lap Kuning Sedang",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 68,
+    "kode": "ID-1000065",
+    "nama": "Spon Besco BC-689",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 69,
+    "kode": "ID-1000066",
+    "nama": "Liquid Pembersih 500ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 70,
+    "kode": "ID-1000067",
+    "nama": "Sunlight Cuci Piring 650 ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 71,
+    "kode": "ID-1000068",
+    "nama": "Porstex ungu 2000ml",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 72,
+    "kode": "ID-1000069",
+    "nama": "Stella Lemon 400ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 73,
+    "kode": "ID-1000070",
+    "nama": "Stella Orange 400ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 74,
+    "kode": "ID-1000071",
+    "nama": "Liquid Lemon Pembersih Refil 440ml",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 75,
+    "kode": "ID-1000072",
+    "nama": "Liquid Pembersih orig Refil 440ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 76,
+    "kode": "ID-1000073",
+    "nama": "Windex Fresh Pump 500ML",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 77,
+    "kode": "ID-1000074",
+    "nama": "Kertas Stiker",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 78,
+    "kode": "ID-1000075",
+    "nama": "Kenko 200 Binder Clip",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 9
+  },
+  {
+    "rowNumber": 79,
+    "kode": "ID-1000076",
+    "nama": "Spidol Snowman Permanen",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 80,
+    "kode": "ID-1000077",
+    "nama": "Tinta Stempel Artline",
+    "kategori": "Tinta Tulis, Tinta Stempel",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 81,
+    "kode": "ID-1000078",
+    "nama": "Lem kertas Joyko",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 82,
+    "kode": "ID-1000079",
+    "nama": "Isolasi Bening 12 mm",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 83,
+    "kode": "ID-1000080",
+    "nama": "Amplop Buklet Putih 110",
+    "kategori": "Amplop",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 84,
+    "kode": "ID-1000081",
+    "nama": "Binder Clips Kenko No. 107",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 85,
+    "kode": "ID-1000082",
+    "nama": "Sticky Note Pronto",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 86,
+    "kode": "ID-1000083",
+    "nama": "Tinta Brother BT 060 BK",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 87,
+    "kode": "ID-1000084",
+    "nama": "Tinta Brother BT 5000 Y",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 88,
+    "kode": "ID-1000085",
+    "nama": "Tinta Brother BT 5000 M",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 89,
+    "kode": "ID-1000086",
+    "nama": "Tinta Brother BT 5000 C",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 90,
+    "kode": "ID-1000087",
+    "nama": "Spidol Gold",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 91,
+    "kode": "ID-1000088",
+    "nama": "Plastik Laminating",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 10
+  },
+  {
+    "rowNumber": 92,
+    "kode": "ID-1000089",
+    "nama": "Kenko SP-80R Rautan",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Toples",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 93,
+    "kode": "ID-1000090",
+    "nama": "Map Biasa Biola 5002",
+    "kategori": "Stopmap",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 94,
+    "kode": "ID-1000091",
+    "nama": "Clipboard Bantex BTI",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 95,
+    "kode": "ID-1000092",
+    "nama": "MAP Kancing DF-107",
+    "kategori": "Stopmap",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 96,
+    "kode": "ID-1000093",
+    "nama": "Double Tip Foam Putih",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 97,
+    "kode": "ID-1000094",
+    "nama": "Lakban 36 x 12 mm",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 98,
+    "kode": "ID-1000095",
+    "nama": "Sticky Notes VT-656",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 99,
+    "kode": "ID-1000096",
+    "nama": "Stcky Notes YS-183",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 100,
+    "kode": "ID-1000097",
+    "nama": "Sticky Notes 21613",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 101,
+    "kode": "ID-1000098",
+    "nama": "Double Tape 9 x 24 mm",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 102,
+    "kode": "ID-1000099",
+    "nama": "Lakban Coklat 2 Inci",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 103,
+    "kode": "ID-1000100",
+    "nama": "MAP 107A K2",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 104,
+    "kode": "ID-1000101",
+    "nama": "Buku Folio",
+    "kategori": "Buku",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 105,
+    "kode": "ID-1000102",
+    "nama": "Pronto Mark & Note SMP/SET",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 106,
+    "kode": "ID-1000103",
+    "nama": "Bantex 8843 08 F4 pocket @20 BTI",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 107,
+    "kode": "ID-1000104",
+    "nama": "TN Box Arsip L ELA/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 23
+  },
+  {
+    "rowNumber": 108,
+    "kode": "ID-1000105",
+    "nama": "TN Box Arsip M ELA/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 12
+  },
+  {
+    "rowNumber": 109,
+    "kode": "ID-1000106",
+    "nama": "Biola 5002 Map Biasa @50 Ep/PAK",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 12
+  },
+  {
+    "rowNumber": 110,
+    "kode": "ID-1000107",
+    "nama": "Headphone Wireless",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 111,
+    "kode": "ID-1000108",
+    "nama": "Bag Folder Imco IM-107 MAP K Emsi/LN",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 112,
+    "kode": "ID-1000109",
+    "nama": "Blok Note No. 15 Kuning Ela/Lsn",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 113,
+    "kode": "ID-1000111",
+    "nama": "Blok Note No. 15 Biru Ela/Lsn",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 114,
+    "kode": "ID-1000112",
+    "nama": "Bantex 4011 21 Jb Box File",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 115,
+    "kode": "ID-1000113",
+    "nama": "Bantex 4011 22 Jb Box File",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 116,
+    "kode": "ID-1000114",
+    "nama": "Bantex 4011 62 Jb Box File",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 117,
+    "kode": "ID-1000115",
+    "nama": "Greebel No. 10-1M Staples@20",
+    "kategori": "Isi Staples",
+    "satuan": "Dus",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 118,
+    "kode": "ID-1000116",
+    "nama": "Kenko No. 5 JMB@10P.Clips",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 119,
+    "kode": "ID-1000117",
+    "nama": "Kenko 111 Binder Clip BM/Lsn",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 120,
+    "kode": "ID-1000118",
+    "nama": "Kenko 155 Binder Clip BM/Lsn",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 121,
+    "kode": "ID-1000119",
+    "nama": "Kenko 260 Binder Clip BM/Lsn",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 122,
+    "kode": "ID-1000120",
+    "nama": "Kenko No.1@10Paper Clip Bm",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 123,
+    "kode": "ID-1000121",
+    "nama": "Kenko No. 300 Binder Clip @6",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 124,
+    "kode": "ID-1000122",
+    "nama": "Benefit GP-1 Gelpen Hitam",
+    "kategori": "Pulpen",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 125,
+    "kode": "ID-1000123",
+    "nama": "Standar Pen P5 0.7",
+    "kategori": "Pulpen",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 126,
+    "kode": "ID-1000124",
+    "nama": "Sticky Note Pronto Film Arrow 24 x 45 mm",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 127,
+    "kode": "ID-1000125",
+    "nama": "Sticky Note Hopax 21689 Paper Index",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 128,
+    "kode": "ID-1000126",
+    "nama": "Sticky Note Trifelo TF 654-8C",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 129,
+    "kode": "ID-1000127",
+    "nama": "Kenko HD-50 Stapler",
+    "kategori": "Staples",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 130,
+    "kode": "ID-1000128",
+    "nama": "Gunting Ideal K-400 KK/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 131,
+    "kode": "ID-1000129",
+    "nama": "Gunting Novus SC-02 SIM",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 132,
+    "kode": "ID-1000130",
+    "nama": "Spidol Snowman 612",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 133,
+    "kode": "ID-1000131",
+    "nama": "Tas Lipat Rocket Rthls25 Smpg LBR",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 134,
+    "kode": "ID-1000132",
+    "nama": "Tas Handel Lipat Smpg THLS30",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 135,
+    "kode": "ID-1000133",
+    "nama": "Gunting Montana STI-180 BHS",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 136,
+    "kode": "ID-1000135",
+    "nama": "Staples Joyko 3-1M 24/6 BM",
+    "kategori": "Isi Staples",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 137,
+    "kode": "ID-1000136",
+    "nama": "Maintenance Box Epson 15160",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 138,
+    "kode": "ID-1000137",
+    "nama": "Clipboard Cover 4211 64 BTI",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 139,
+    "kode": "ID-1000138",
+    "nama": "Bantex Ordner",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 140,
+    "kode": "ID-1000139",
+    "nama": "Pointer Laser Logitech R 400",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 141,
+    "kode": "ID-1000140",
+    "nama": "Spidol Tinta Emas",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 142,
+    "kode": "ID-1000141",
+    "nama": "Amplop Biola Samson",
+    "kategori": "Amplop",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 143,
+    "kode": "ID-1000142",
+    "nama": "Imco MAP Kancing",
+    "kategori": "Stopmap",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 144,
+    "kode": "ID-1000143",
+    "nama": "Mouse Pad",
+    "kategori": "Peralatan Komputer",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 145,
+    "kode": "ID-1000144",
+    "nama": "Amplop Paperline 104",
+    "kategori": "Amplop",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 146,
+    "kode": "ID-1000145",
+    "nama": "Kertas Foto",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 147,
+    "kode": "ID-1000146",
+    "nama": "Flash Disk HP V-150 64 GB",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 148,
+    "kode": "ID-1000147",
+    "nama": "Flash Disk Sandisk Dual Drive Go 64GB (OTG USB) Type C",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 149,
+    "kode": "ID-1000148",
+    "nama": "Flash Disk Sandisk Dual Drive Go 128GB (OTG USB) Type C 400 MB/s",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 150,
+    "kode": "ID-1000149",
+    "nama": "Flash Disk Sandisk Dual Drive LUXE USB 3.1 128GB (Type C)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 151,
+    "kode": "ID-1000150",
+    "nama": "Flash Disk Sandisk Dual Drive LUXE USB 3.1 64GB (Type C)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 152,
+    "kode": "ID-1000151",
+    "nama": "Headset Rexux Bluetooth BT7 Black",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 153,
+    "kode": "ID-1000152",
+    "nama": "Headset Rexux Bluetooth BT7 White",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 154,
+    "kode": "ID-1000153",
+    "nama": "Headset Rexux Bluetooth BT7 Lilac",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 155,
+    "kode": "ID-1000154",
+    "nama": "Headset Logitech H-111",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 156,
+    "kode": "ID-1000155",
+    "nama": "Headset Logitech H-110",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 157,
+    "kode": "ID-1000156",
+    "nama": "Mouse Pad Polos",
+    "kategori": "Komputer Supplies",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 158,
+    "kode": "ID-1000157",
+    "nama": "Webcam Logitech C270 HD",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 159,
+    "kode": "ID-1000159",
+    "nama": "Papan CLIPBOARD W/COVER 4211 62 BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 160,
+    "kode": "ID-1000160",
+    "nama": "Papan BANTEX 4211 24 CLIPBOARD BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 161,
+    "kode": "ID-1000161",
+    "nama": "Papan CLIPBOARD W/COVER 4211 64 BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 162,
+    "kode": "ID-1000162",
+    "nama": "Papan CLIPBOARD W/COVER 4211 65 BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 163,
+    "kode": "ID-1000163",
+    "nama": "Box File BANTEX 4011 24 BOX FILE JMB BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 164,
+    "kode": "ID-1000164",
+    "nama": "Box File BANTEX 4011 21 JB BOX FILE BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 165,
+    "kode": "ID-1000165",
+    "nama": "Box File BANTEX 4011  62 JB BOX FILE /BH",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 166,
+    "kode": "ID-1000166",
+    "nama": "Box File BANTEX 4011 12 BOX FILE  JMB BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 167,
+    "kode": "ID-1000167",
+    "nama": "Box File BANTEX 4011 76 JB BOX FILE BTI",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 168,
+    "kode": "ID-1000169",
+    "nama": "Gunting M&G ASS91435 SCISSORS WGT/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 169,
+    "kode": "ID-1000171",
+    "nama": "Gunting ALLIGATOR BIG SCISSORS RED SMS/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 170,
+    "kode": "ID-1000173",
+    "nama": "Gunting NOVUS SC-03 GUNTING SIM/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 171,
+    "kode": "ID-1000174",
+    "nama": "Gunting ALIGATOR BIG SCISSORS BLUE SMS/BH",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 172,
+    "kode": "ID-1000175",
+    "nama": "Cutter V-TEC CUTTER KNIFEE L-500 18MM/PCS",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 173,
+    "kode": "ID-1000176",
+    "nama": "Cutter KATENAI HX358/F-17 CUTTER 18MM JM/BH",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 174,
+    "kode": "ID-1000178",
+    "nama": "Pulpen KENKO KE-600 O.5 PEN BM/LSN",
+    "kategori": "Pulpen",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 175,
+    "kode": "ID-1000180",
+    "nama": "Lakban DAIMARU 24X5M DBL FOAM EKA/ROL",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 176,
+    "kode": "ID-1000181",
+    "nama": "Stapler GREEBEL STAPLER ICON BDK/BH",
+    "kategori": "Staples",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 177,
+    "kode": "ID-1000182",
+    "nama": "Stapler DELI REMOVER NO.O231 ATK/BH",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 178,
+    "kode": "ID-1000183",
+    "nama": "Kertas Memo PRONTO MARK&NOTE SMP/SET",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 179,
+    "kode": "ID-1000184",
+    "nama": "Kertas Memo PRONTO MARK&NOTE SMP/SET",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 180,
+    "kode": "ID-1000186",
+    "nama": "Sticky Note DELI A106 POST IT ATK",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 181,
+    "kode": "ID-1000187",
+    "nama": "Sticky Note STICK N CUBE 21203 NEON RAINBOW SIM",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 182,
+    "kode": "ID-1000188",
+    "nama": "Sticky Note M&G STICKY NOTES YS",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 183,
+    "kode": "ID-1000189",
+    "nama": "Pulpen M&G AGP12372 BALL PEN BLACK WGT/LSN",
+    "kategori": "Pulpen",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 184,
+    "kode": "ID-1000190",
+    "nama": "Double Tape JETA D.TAPE 9MX24MMX90 SMP/ROL",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 185,
+    "kode": "ID-1000191",
+    "nama": "Lakban HOKI LAKBAN FULL B/C 48MMX90Y SKM/R",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 186,
+    "kode": "ID-1000192",
+    "nama": "Lakban DAIMARU 48X12M LAKBAN HTM EKA/ROL",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 187,
+    "kode": "ID-1000193",
+    "nama": "Lakban JETA OPP TAPE 100MX48MMX45 BNG SMP/",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 188,
+    "kode": "ID-1000194",
+    "nama": "Lakban JETA OPP TAPE 80MX48MMX45 BNG/CKLT",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 189,
+    "kode": "ID-1000195",
+    "nama": "Sticky Note STICK N CUBE 21535 51X51MM PST",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 190,
+    "kode": "ID-1000196",
+    "nama": "Sticky Note HOPAX STICKN CUBE 21533 PST",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 191,
+    "kode": "ID-1000197",
+    "nama": "Amplop PAPERLINE ENV 110 PPS AMPLOP SMP",
+    "kategori": "Amplop",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 192,
+    "kode": "ID-1000198",
+    "nama": "Pengahapus Pensil JOYKO 526 40BL/CO@40STIP BM/PAK",
+    "kategori": "Penghapus/Korektor",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 193,
+    "kode": "ID-1000200",
+    "nama": "Paper Clip JOYKO NO.3 @10 P.CLIPS BM/PAK",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 194,
+    "kode": "ID-1000201",
+    "nama": "Binder Clip KENKO 280 BINDER CLIPS@6 BM/PAK",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 195,
+    "kode": "ID-1000202",
+    "nama": "Tipex TOMBOW MONO CT-CX4 CRRTN+REF SMP",
+    "kategori": "Penghapus/Korektor",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 196,
+    "kode": "ID-1000203",
+    "nama": "STABILO BOSS BLUE 70/31/PCS",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 197,
+    "kode": "ID-1000204",
+    "nama": "STABILO BOSS 70/55 /BH",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 198,
+    "kode": "ID-1000205",
+    "nama": "STABILO BOSS PINK /PCS",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 199,
+    "kode": "ID-1000206",
+    "nama": "Rautan JOYKO B-145 SHARPENER @24 BM/DRUM",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 200,
+    "kode": "ID-1000207",
+    "nama": "Amplop BIOLA/EXEC D PLS SEAL AMPLOP BM/PAK",
+    "kategori": "Amplop",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 201,
+    "kode": "ID-1000208",
+    "nama": "TAS KAIN PLS M 30X40 ABP/LSN",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 202,
+    "kode": "ID-1000209",
+    "nama": "Map D-FILE DF-107A MAP K2 EMSI/LSN",
+    "kategori": "Ordner Dan Map",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 203,
+    "kode": "ID-1000210",
+    "nama": "Binder Clips Joyko 111 BM/Gross",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 204,
+    "kode": "ID-1000211",
+    "nama": "Binder Clips Joyko 107 BM/Gross",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 205,
+    "kode": "ID-1000212",
+    "nama": "Binder Clip Kenko 200 BM/Lsn",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 206,
+    "kode": "ID-1000213",
+    "nama": "Binder Clips Joyko 200 BM/Lsn",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 207,
+    "kode": "ID-1000214",
+    "nama": "Kenko Mata Cutter L-150",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 208,
+    "kode": "ID-1000215",
+    "nama": "Kertas Piagam Linen Polio Polos",
+    "kategori": "Kertas Dan Cover Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 209,
+    "kode": "ID-1000216",
+    "nama": "Kabel Mini HDMI Male To HDMI Female",
+    "kategori": "Bahan Komputer Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 210,
+    "kode": "ID-1000217",
+    "nama": "Headset Logitech H-151",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 211,
+    "kode": "ID-1000218",
+    "nama": "Switch Hub TP-Link Gigabit SG105 5 Port",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 212,
+    "kode": "ID-1000219",
+    "nama": "Webcam Logitech C505",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 213,
+    "kode": "ID-1000220",
+    "nama": "Speaker M-Tech 2.0 A1",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 214,
+    "kode": "ID-1000221",
+    "nama": "Sticky Note Joyko Index & Memo IM-33 BM",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 215,
+    "kode": "ID-1000222",
+    "nama": "Sticky Note M&G AS",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 216,
+    "kode": "ID-1000223",
+    "nama": "Lem Kenko Stick 25 AJ/PCS",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 14
+  },
+  {
+    "rowNumber": 217,
+    "kode": "ID-1000224",
+    "nama": "Sticky Note Joyko Index & Memo  IM-32",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 218,
+    "kode": "ID-1000225",
+    "nama": "Sticky Note Hopax 21007",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 219,
+    "kode": "ID-1000226",
+    "nama": "Pulpen Kenko KE-600 .5",
+    "kategori": "Pulpen",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 220,
+    "kode": "ID-1000227",
+    "nama": "Pulpen Greebel Viero Gel Pen GP-504",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 221,
+    "kode": "ID-1000228",
+    "nama": "Lakban Hitam",
+    "kategori": "Alat Perekat",
+    "satuan": "Rol",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 222,
+    "kode": "ID-1000229",
+    "nama": "Kertas BC Lux A3 Putih Karton",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 223,
+    "kode": "ID-1000230",
+    "nama": "Kertas Linen A3 Tebal Putih Karton",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 5
+  },
+  {
+    "rowNumber": 224,
+    "kode": "ID-1000231",
+    "nama": "Amplop PAPERLINE ENV 90 PPS AMPLOP SMP",
+    "kategori": "Amplop",
+    "satuan": "Dus",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 225,
+    "kode": "ID-1000232",
+    "nama": "Tinta Epson 001 Black",
+    "kategori": "Komputer Supplies",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 6
+  },
+  {
+    "rowNumber": 226,
+    "kode": "ID-1000233",
+    "nama": "Tinta Epson 001 Cyan",
+    "kategori": "Komputer Supplies",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 227,
+    "kode": "ID-1000234",
+    "nama": "Tinta Epson 001 Magenta",
+    "kategori": "Komputer Supplies",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 228,
+    "kode": "ID-1000235",
+    "nama": "Tinta Epson 001 Yellow",
+    "kategori": "Komputer Supplies",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 229,
+    "kode": "ID-1000236",
+    "nama": "Binder Clips Joyko 105 BM/Gross",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 230,
+    "kode": "ID-1000237",
+    "nama": "Binder Clips Joyko 105 BM/Gross",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 231,
+    "kode": "ID-1000238",
+    "nama": "Penghapus Kenko ERW-40SQ",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 232,
+    "kode": "ID-1000239",
+    "nama": "Sticky Note Hopax Neon 21613 Paper Index",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 233,
+    "kode": "ID-1000240",
+    "nama": "Pulpen Standard JR6 0.5 gelpen",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 234,
+    "kode": "ID-1000241",
+    "nama": "Lakban Bening Sanpack 48 x 100 M",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 235,
+    "kode": "ID-1000242",
+    "nama": "Isi Staples Kenko No. 10",
+    "kategori": "Staples",
+    "satuan": "Box",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 236,
+    "kode": "ID-1000243",
+    "nama": "Pulpen Snowman Cair",
+    "kategori": "Pulpen",
+    "satuan": "Dus",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 237,
+    "kode": "ID-1000244",
+    "nama": "Kertas Sertifikat/Kinstruk",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 238,
+    "kode": "ID-1000245",
+    "nama": "Kertas A3 Sinar Dunia",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Rim",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 239,
+    "kode": "ID-1000246",
+    "nama": "Mouse Wireless Logitech",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 240,
+    "kode": "ID-1000247",
+    "nama": "Lakban Daimaru 36 x 12",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 241,
+    "kode": "ID-1000248",
+    "nama": "Stapler Joyko HD-10D",
+    "kategori": "Staples",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 242,
+    "kode": "ID-1000249",
+    "nama": "Bantex Index Tabs",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 243,
+    "kode": "ID-1000250",
+    "nama": "Lakban Alligator",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 244,
+    "kode": "ID-1000251",
+    "nama": "Block Note Micro",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 245,
+    "kode": "ID-1000252",
+    "nama": "Tinta Epson T7741 black",
+    "kategori": "Tinta/Toner Printer",
+    "satuan": "Botol",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 246,
+    "kode": "ID-1000253",
+    "nama": "ID Card",
+    "kategori": "Bahan Cetak Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 247,
+    "kode": "ID-1000254",
+    "nama": "ID Card + Tali 10 HJ",
+    "kategori": "Bahan Cetak Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 248,
+    "kode": "ID-1000255",
+    "nama": "ID Card + Tali 100",
+    "kategori": "Bahan Cetak Lainnya",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 249,
+    "kode": "ID-1000256",
+    "nama": "Akrilik Tent Holder A5",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 250,
+    "kode": "ID-1000257",
+    "nama": "Lakban Bening Sanpack 48 x 80",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 251,
+    "kode": "ID-1000258",
+    "nama": "Lakban Daimaru 2 Inci Bening",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 252,
+    "kode": "ID-1000259",
+    "nama": "Lakban Sanpack 48 mm x 10 m",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 253,
+    "kode": "ID-1000260",
+    "nama": "Double Tip Foam SMP",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 254,
+    "kode": "ID-1000261",
+    "nama": "Cutter Alligator",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 255,
+    "kode": "ID-1000262",
+    "nama": "Cutter Kenko",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 256,
+    "kode": "ID-1000263",
+    "nama": "Kenko L-150 Pisau Ctr",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 257,
+    "kode": "ID-1000264",
+    "nama": "Rocket Rthb30 Tas Box Lbr",
+    "kategori": "Perlengkapan Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 258,
+    "kode": "ID-1000265",
+    "nama": "Boom Tas Box Bthb30 65Gr Lbr",
+    "kategori": "Perlengkapan Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 259,
+    "kode": "ID-1000266",
+    "nama": "Kenko Binder Clips 105 Bm",
+    "kategori": "Penjepit Kertas",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 260,
+    "kode": "ID-1000267",
+    "nama": "Sticky Notes Neon 4Clr Pst",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 261,
+    "kode": "ID-1000268",
+    "nama": "M&G S.Note As33U175/Yd-461 Org Wgt",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 262,
+    "kode": "ID-1000269",
+    "nama": "M&G Sticky Note As33U177/Yd-463 Wgt/",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 263,
+    "kode": "ID-1000270",
+    "nama": "M&G Ys-459 25Sx7C Stick As32U774 Wgt",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 9
+  },
+  {
+    "rowNumber": 264,
+    "kode": "ID-1000271",
+    "nama": "Joyko 10-1M @20 Staples Bm",
+    "kategori": "Isi Staples",
+    "satuan": "Pack",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 265,
+    "kode": "ID-1000272",
+    "nama": "Standard Anygel 0.38 Btv/",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 266,
+    "kode": "ID-1000273",
+    "nama": "Standard Tecnogel 0,5Pen Btv",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 267,
+    "kode": "ID-1000274",
+    "nama": "Greebel Viero Gel Pen Gp-504 Bdk",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 268,
+    "kode": "ID-1000275",
+    "nama": "Kenko 100Cm Mstr Besi Bm",
+    "kategori": "Penggaris",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 269,
+    "kode": "ID-1000276",
+    "nama": "Montana Mistar Besi 30Cm/Rt-30S Mad",
+    "kategori": "Penggaris",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 270,
+    "kode": "ID-1000277",
+    "nama": "Joyko P-88 Prime 2B Pensil Bm",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 271,
+    "kode": "ID-1000278",
+    "nama": "M&G Sticky Notes Ys-183 Wgt/Bks",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 272,
+    "kode": "ID-1000279",
+    "nama": "Wireless Presenter Logitech R500s (Graphite)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 273,
+    "kode": "ID-1000280",
+    "nama": "Converter NYK Type C To HDMI",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 274,
+    "kode": "ID-1000281",
+    "nama": "Speaker Fantech GS305 Black",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 275,
+    "kode": "ID-1000282",
+    "nama": "Keyboard + Mouse Logitech MK220 Wireless",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 276,
+    "kode": "ID-1000283",
+    "nama": "Flash Disk Sandisk Dual Drive Go 128GB (OTG USB) Type C",
+    "kategori": "USB/Flash Disk",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 277,
+    "kode": "ID-1000284",
+    "nama": "Tenda AX300 Wi-Fi 6 High Gain Wireless USB Adapter (U2)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 278,
+    "kode": "ID-1000285",
+    "nama": "Cooler Pad Notebook Fantech NC11",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 279,
+    "kode": "ID-1000286",
+    "nama": "Keyboard Logitech Classic K120",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 280,
+    "kode": "ID-1000287",
+    "nama": "Keyboard + Mouse Logitech MK120",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 281,
+    "kode": "ID-1000288",
+    "nama": "Mouse Logitech USB M90 (Dark Gray)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 282,
+    "kode": "ID-1000289",
+    "nama": "Headset Logitech H-150 Blue",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 283,
+    "kode": "ID-1000290",
+    "nama": "Headset Logitech H-150 White",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 284,
+    "kode": "ID-1000291",
+    "nama": "Headset Rexus Bluetooth BT7 Beige",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 285,
+    "kode": "ID-1000292",
+    "nama": "Ugreen Bluetooth 5.3 Adapter",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 286,
+    "kode": "ID-1000293",
+    "nama": "Flash Disk Sandisk Phone Drive USB 3.2 Type C – 256GB (Yellow)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 287,
+    "kode": "ID-1000294",
+    "nama": "Flash Disk Sandisk Phone Drive USB 3.2 Type C – 256GB",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 288,
+    "kode": "ID-1000295",
+    "nama": "Flash Disk Sandisk Phone Drive USB 3.2 Type C – 256GB (Orange)",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 289,
+    "kode": "ID-1000296",
+    "nama": "Speaker Fantech GS203 Black",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 290,
+    "kode": "ID-1000297",
+    "nama": "Speaker Fantech GS203 White",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 291,
+    "kode": "ID-1000298",
+    "nama": "Logitech S150 USB Stereo Speakers",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 292,
+    "kode": "ID-1000299",
+    "nama": "Microphone Wireless JETE MX1",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 293,
+    "kode": "ID-1000300",
+    "nama": "Gunting Joyko",
+    "kategori": "Alat Penunjang Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 294,
+    "kode": "ID-1000301",
+    "nama": "UHU Lem Stick",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 295,
+    "kode": "ID-1000302",
+    "nama": "Microphone Wireless JETE MX1",
+    "kategori": "Komputer Supplies",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 296,
+    "kode": "ID-1000303",
+    "nama": "Cutter Joyko",
+    "kategori": "Cutter (Alat Tulis Kantor)",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 297,
+    "kode": "ID-1000304",
+    "nama": "Buku Pedoman Sakernas",
+    "kategori": "Buku",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 298,
+    "kode": "ID-1000305",
+    "nama": "Kuesioner Sakernas",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 299,
+    "kode": "ID-1000306",
+    "nama": "Kuesioner SLK",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 9
+  },
+  {
+    "rowNumber": 300,
+    "kode": "ID-1000307",
+    "nama": "Kuesioner BUMD",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 301,
+    "kode": "ID-1000308",
+    "nama": "Kuesioner K3",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Set",
+    "gudang": "Gudang 2",
+    "stok": 30
+  },
+  {
+    "rowNumber": 302,
+    "kode": "ID-1000309",
+    "nama": "Mouse Logitech M170",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 3
+  },
+  {
+    "rowNumber": 303,
+    "kode": "ID-1000310",
+    "nama": "Double Tape",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 304,
+    "kode": "ID-1000311",
+    "nama": "Kertas Jilid A3",
+    "kategori": "Berbagai Kertas",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 305,
+    "kode": "ID-1000313",
+    "nama": "Double Tape Kertas T",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 306,
+    "kode": "ID-1000314",
+    "nama": "Kuesioner Seruti TW II (K.Inti)",
+    "kategori": "Bahan Cetak Lainnya",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 307,
+    "kode": "ID-1000315",
+    "nama": "Kuesioner Seruti TW II (K.MAK)",
+    "kategori": "Bahan Cetak Lainnya",
+    "satuan": "Lembar",
+    "gudang": "Gudang 2",
+    "stok": 0
+  },
+  {
+    "rowNumber": 308,
+    "kode": "ID-1000316",
+    "nama": "Pointer Wireless USB Presenter",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 309,
+    "kode": "ID-1000317",
+    "nama": "Wireless Presenter Laser Pointer",
+    "kategori": "Komputer Supplies",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 4
+  },
+  {
+    "rowNumber": 310,
+    "kode": "ID-1000318",
+    "nama": "ALLIGATOR OPP TAPE CLEAR/BROWN 90Y",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 311,
+    "kode": "ID-1000319",
+    "nama": "SANPACK 24MM MASKING TAPE SMP/ROL",
+    "kategori": "Alat Perekat",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 312,
+    "kode": "ID-1000320",
+    "nama": "GM MAP BATIK KAIN CVR PLSTK/WBH",
+    "kategori": "Stopmap",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 313,
+    "kode": "ID-1000321",
+    "nama": "COMBO SNT-584-7P FLAG S. NOTE EDS/SET",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 314,
+    "kode": "ID-1000322",
+    "nama": "M&G STICKY NOTES YS-92 W/GT/BK/S",
+    "kategori": "Alat Tulis Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 2
+  },
+  {
+    "rowNumber": 315,
+    "kode": "ID-1000323",
+    "nama": "KENKO K-1 GEL PEN HT BDK/LSN",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 316,
+    "kode": "ID-1000324",
+    "nama": "SNOWMAN PMNT G-520 HTM BM/LSN",
+    "kategori": "Pulpen",
+    "satuan": "Lusin",
+    "gudang": "Gudang 2",
+    "stok": 47
+  },
+  {
+    "rowNumber": 317,
+    "kode": "ID-1000325",
+    "nama": "GREEBEL GUNTING SC-12",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Buah",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 318,
+    "kode": "ID-1000326",
+    "nama": "TOTEBAG SEDANG",
+    "kategori": "Alat/bahan Untuk Kegiatan Kantor Lainnya",
+    "satuan": "Pcs",
+    "gudang": "Gudang 2",
+    "stok": 1
+  },
+  {
+    "rowNumber": 319,
+    "kode": "ID-1000327",
+    "nama": "Lakban 1 Inci",
+    "kategori": "Alat Perekat",
+    "satuan": "Biji",
+    "gudang": "Gudang 2",
+    "stok": 2
+  }
+]

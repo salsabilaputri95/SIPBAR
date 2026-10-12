@@ -1,0 +1,50 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js build outputs
+/.next/
+/.next_app/
+/out/
+
+# Production
+/build
+
+# Misc & Environment
+.DS_Store
+*.pem
+# Local env files & temporary files
+.env
+.env*.local
+.env.local
+.env.production.local
+.env.test.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files & temporary files
+~$*.xlsm
+~$*.xlsx
+*.tmp
+*.temp
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# System / IDE / Agent scratch
+.idea/
+.vscode/
+.gemini/
+.agents/
+vba_dump.txt
+extract_vba.py
+temp_extract/
