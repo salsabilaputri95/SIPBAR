@@ -198,10 +198,33 @@ async function main() {
   let successCount = 0;
   for (const p of daftarPegawai) {
     const passwordHash = await bcrypt.hash(p.password, 12);
+
+    // Cek apakah ada akun lama yang memegang NIP ini (misal akun 'admingudang' lama)
+    if (p.nip) {
+      const existingByNip = await prisma.user.findUnique({ where: { nip: p.nip } });
+      if (existingByNip && existingByNip.username !== p.username) {
+        await prisma.user.update({
+          where: { id: existingByNip.id },
+          data: {
+            username: p.username,
+            name: p.name,
+            password: passwordHash,
+            role: Role.PEGAWAI,
+            kecamatan: p.kecamatan,
+            fungsiId: umumFungsi.id,
+          },
+        });
+        successCount++;
+        console.log(`   [${successCount}/${daftarPegawai.length}] ✅ @${p.username.padEnd(14)} : ${p.name} (Kec. ${p.kecamatan}) [migrated from @${existingByNip.username}]`);
+        continue;
+      }
+    }
+
     await prisma.user.upsert({
       where: { username: p.username },
       update: {
         name: p.name,
+        nip: p.nip,
         password: passwordHash,
         role: Role.PEGAWAI,
         kecamatan: p.kecamatan,

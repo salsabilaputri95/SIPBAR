@@ -139,10 +139,30 @@ async function main() {
 
   for (const p of daftarPegawai) {
     const pHash = await bcrypt.hash(p.password, 12);
+
+    if (p.nip) {
+      const existingByNip = await prisma.user.findUnique({ where: { nip: p.nip } });
+      if (existingByNip && existingByNip.username !== p.username) {
+        await prisma.user.update({
+          where: { id: existingByNip.id },
+          data: {
+            username: p.username,
+            name: p.name,
+            password: pHash,
+            role: Role.PEGAWAI,
+            kecamatan: p.kecamatan,
+            fungsiId: fungsiMap.get("UMUM"),
+          },
+        });
+        continue;
+      }
+    }
+
     await prisma.user.upsert({
       where: { username: p.username },
       update: {
         name: p.name,
+        nip: p.nip,
         password: pHash,
         role: Role.PEGAWAI,
         kecamatan: p.kecamatan,
