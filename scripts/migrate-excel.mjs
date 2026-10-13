@@ -95,50 +95,71 @@ async function main() {
   console.log(`✅ ${gudangMap.size} Gudang berhasil disimpan.`);
 
   // 5. SEED USERS
-  console.log("📍 [5/6] Seeding Pengguna Sistem...");
-  const hashSuper = await bcrypt.hash("AdminBPS2026!", 12);
-  const hashGudang = await bcrypt.hash("GudangBPS2026!", 12);
-  const hashPegawai = await bcrypt.hash("PegawaiBPS2026!", 12);
+  console.log("📍 [5/6] Seeding Pengguna Sistem (Admin & 19 Pegawai)...");
+  const hashAdmin = await bcrypt.hash("adminsipbar!", 12);
 
-  const superUser = await prisma.user.upsert({
-    where: { username: "superadmin" },
-    update: { password: hashSuper },
-    create: {
-      username: "superadmin",
-      name: "Super Admin IT (BPS Jeneponto)",
-      nip: "199501012018011001",
-      password: hashSuper,
+  const adminUser = await prisma.user.upsert({
+    where: { username: "adminsipbar" },
+    update: {
+      password: hashAdmin,
       role: Role.SUPER_ADMIN,
-      fungsiId: fungsiMap.get("IPDS"),
+      name: "Administrator SIPBAR",
+    },
+    create: {
+      username: "adminsipbar",
+      name: "Administrator SIPBAR",
+      nip: "199501012018011001",
+      password: hashAdmin,
+      role: Role.SUPER_ADMIN,
+      fungsiId: fungsiMap.get("IPDS") || fungsiMap.get("UMUM"),
     },
   });
 
-  const adminGudangUser = await prisma.user.upsert({
-    where: { username: "admingudang" },
-    update: { password: hashGudang },
-    create: {
-      username: "admingudang",
-      name: "Nur Azizah Tajuddin, A.Md",
-      nip: "199408222018012001",
-      password: hashGudang,
-      role: Role.ADMIN_GUDANG,
-      fungsiId: fungsiMap.get("UMUM"),
-    },
-  });
+  const daftarPegawai = [
+    { name: "Imaniar Dwi Aryanti, S.TP.", kecamatan: "Bangkala Barat", username: "imaniar", password: "ima361", nip: "199001012015012001" },
+    { name: "Kasmawati Saleng, SE", kecamatan: "Binamu", username: "kasmawati", password: "kas303", nip: "198505122008012002" },
+    { name: "Misbahuddin, S.Si", kecamatan: "Bangkala Barat", username: "misbahuddin", password: "mis813", nip: "198803152011011003" },
+    { name: "ST. Syamriani S S.Kom", kecamatan: "Binamu", username: "st", password: "sts225", nip: "198907202012012004" },
+    { name: "Madsutriman Achmad, S.Si.", kecamatan: "Bangkala", username: "madsutriman", password: "mad413", nip: "198711102010011005" },
+    { name: "Ian Tryaldi Halim, S.Tr.Stat.", kecamatan: "Arungkeke", username: "ian", password: "ian691", nip: "199602052019011006" },
+    { name: "Muh. Reza Agung Wirawan, A.Md.Stat.", kecamatan: "Bontoramba", username: "muh", password: "muh913", nip: "199708142020011007" },
+    { name: "Achmad Syahrul Ramadhani, A.Md.", kecamatan: "Tarowang", username: "achmad", password: "ach844", nip: "199801222021011008" },
+    { name: "Sapril, A.Md. Kom", kecamatan: "Kelara", username: "sapril", password: "sap628", nip: "199204182014011009" },
+    { name: "Sudarnati M.", kecamatan: "Bangkala Barat", username: "sudarnati", password: "sud130", nip: "198609052009012010" },
+    { name: "Rima Mayyadah S.Tr.Stat.", kecamatan: "Turatea", username: "rima", password: "rim966", nip: "199712302020012011" },
+    { name: "Nur Azizah Tadjuddin A.Md.Stat.", kecamatan: "Tamalatea", username: "nurazizah", password: "nur258", nip: "199408222018012001" },
+    { name: "Dicki Abdurohman S.Tr.Stat.", kecamatan: "Rumbia", username: "dicki", password: "dic970", nip: "199510112018011013" },
+    { name: "Muhammad Muawwad MS, S.Tr. Stat", kecamatan: "Bangkala", username: "muhammad", password: "muh192", nip: "199606162019011014" },
+    { name: "Zainika Ichtarona, S.Tr.Stat", kecamatan: "Binamu", username: "zainika", password: "zai436", nip: "199804022021012015" },
+    { name: "Nur Lianasari, A.Md.Stat", kecamatan: "Bontoramba", username: "nurlianasari", password: "nur787", nip: "199505252018012016" },
+    { name: "Herlina Pujianti, S.Tr.Stat", kecamatan: "Batang", username: "herlina", password: "her443", nip: "199609192019012017" },
+    { name: "Andi Sri Rahmawati, A.Md", kecamatan: "Tamalatea", username: "andi", password: "and176", nip: "199312012016012018" },
+    { name: "Naufal Muhammad Iqbal, S.Tr. Stat", kecamatan: "Rumbia", username: "naufal", password: "nau188", nip: "199903102022011019" },
+  ];
 
-  await prisma.user.upsert({
-    where: { username: "pegawai" },
-    update: { password: hashPegawai },
-    create: {
-      username: "pegawai",
-      name: "Staf BPS Jeneponto",
-      nip: "199001012019011002",
-      password: hashPegawai,
-      role: Role.PEGAWAI,
-      fungsiId: fungsiMap.get("UMUM"),
-    },
-  });
-  console.log("✅ Akun pengguna (superadmin, admingudang, pegawai) aktif.");
+  for (const p of daftarPegawai) {
+    const pHash = await bcrypt.hash(p.password, 12);
+    await prisma.user.upsert({
+      where: { username: p.username },
+      update: {
+        name: p.name,
+        password: pHash,
+        role: Role.PEGAWAI,
+        kecamatan: p.kecamatan,
+        fungsiId: fungsiMap.get("UMUM"),
+      },
+      create: {
+        username: p.username,
+        name: p.name,
+        nip: p.nip,
+        password: pHash,
+        role: Role.PEGAWAI,
+        kecamatan: p.kecamatan,
+        fungsiId: fungsiMap.get("UMUM"),
+      },
+    });
+  }
+  console.log(`✅ Akun pengguna admin ('adminsipbar') dan ${daftarPegawai.length} Pegawai aktif.`);
 
   // 6. MIGRASI MASTER BARANG (316 Items)
   console.log("\n📦 [6/6] Migrasi 316 Master Barang...");
@@ -206,7 +227,7 @@ async function main() {
         barangId: targetBarangId,
         jumlahMasuk: m.jumlah,
         hargaBeli: m.harga > 0 ? m.harga : null,
-        createdById: adminGudangUser.id,
+        createdById: adminUser.id,
         keterangan: `Migrasi Excel SIPBAR (Baris ${m.rowNumber})`,
       },
     });
@@ -251,7 +272,7 @@ async function main() {
         jumlahKeluar: k.jumlah,
         penerimaNama: k.penerima || "Pegawai BPS",
         fungsiId: targetFungsiId,
-        createdById: adminGudangUser.id,
+        createdById: adminUser.id,
         keterangan: `Migrasi Excel SIPBAR (No Urut ${k.noUrut}, Baris ${k.rowNumber})`,
       },
     });

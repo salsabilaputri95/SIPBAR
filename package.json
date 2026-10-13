@@ -11,6 +11,7 @@
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:seed": "node scripts/migrate-excel.mjs",
+    "db:seed-users": "node scripts/seed-users.mjs",
     "db:extract": "node scripts/extract-excel-data.mjs",
     "db:migrate-excel": "node scripts/migrate-excel.mjs",
     "db:studio": "prisma studio"

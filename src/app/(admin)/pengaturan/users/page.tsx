@@ -68,6 +68,7 @@ export default function UsersManagementPage() {
     password: "",
     role: "PEGAWAI",
     fungsiId: "",
+    kecamatan: "",
   });
 
   // Form states for Edit
@@ -76,6 +77,7 @@ export default function UsersManagementPage() {
     nip: "",
     role: "PEGAWAI",
     fungsiId: "",
+    kecamatan: "",
   });
 
   // Form state for Reset Password
@@ -110,13 +112,14 @@ export default function UsersManagementPage() {
       password: createForm.password,
       role: createForm.role as any,
       fungsiId: createForm.fungsiId || undefined,
+      kecamatan: createForm.kecamatan || undefined,
     });
 
     setSubmitting(false);
     if (res.success) {
       setActionMessage({ type: "success", text: res.message || "Pengguna berhasil ditambahkan." });
       setCreateDialogOpen(false);
-      setCreateForm({ username: "", name: "", nip: "", password: "", role: "PEGAWAI", fungsiId: "" });
+      setCreateForm({ username: "", name: "", nip: "", password: "", role: "PEGAWAI", fungsiId: "", kecamatan: "" });
       loadData();
     } else {
       setActionMessage({ type: "error", text: res.error || "Gagal membuat pengguna." });
@@ -130,6 +133,7 @@ export default function UsersManagementPage() {
       nip: user.nip || "",
       role: user.role,
       fungsiId: user.fungsiId || "",
+      kecamatan: user.kecamatan || "",
     });
     setEditDialogOpen(true);
   };
@@ -145,6 +149,7 @@ export default function UsersManagementPage() {
       nip: editForm.nip || undefined,
       role: editForm.role as any,
       fungsiId: editForm.fungsiId || undefined,
+      kecamatan: editForm.kecamatan || undefined,
     });
 
     setSubmitting(false);
@@ -205,6 +210,7 @@ export default function UsersManagementPage() {
     const matchSearch =
       u.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       u.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (u.kecamatan && u.kecamatan.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (u.nip && u.nip.includes(searchQuery));
 
     const matchRole = roleFilter === "ALL" || u.role === roleFilter;
@@ -364,7 +370,14 @@ export default function UsersManagementPage() {
                         </div>
                         <div>
                           <p className="font-bold text-slate-900 leading-snug">{u.name}</p>
-                          <p className="text-xs text-slate-500 font-mono">@{u.username}</p>
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <p className="text-xs text-slate-500 font-mono">@{u.username}</p>
+                            {u.kecamatan && (
+                              <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-medium border border-slate-200">
+                                {u.kecamatan}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -490,6 +503,17 @@ export default function UsersManagementPage() {
             </div>
 
             <div>
+              <label className="text-xs font-semibold text-slate-700">Kecamatan / Wilayah Tugas (Opsional)</label>
+              <Input
+                type="text"
+                placeholder="Contoh: Bangkala Barat, Binamu, dll."
+                value={createForm.kecamatan}
+                onChange={(e) => setCreateForm({ ...createForm, kecamatan: e.target.value })}
+                className="mt-1 h-10 rounded-xl bg-slate-50"
+              />
+            </div>
+
+            <div>
               <label className="text-xs font-semibold text-slate-700">Password Awal *</label>
               <Input
                 type="password"
@@ -573,6 +597,17 @@ export default function UsersManagementPage() {
                 type="text"
                 value={editForm.nip}
                 onChange={(e) => setEditForm({ ...editForm, nip: e.target.value })}
+                className="mt-1 h-10 rounded-xl bg-slate-50"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-slate-700">Kecamatan / Wilayah Tugas (Opsional)</label>
+              <Input
+                type="text"
+                placeholder="Contoh: Bangkala Barat, Binamu, dll."
+                value={editForm.kecamatan}
+                onChange={(e) => setEditForm({ ...editForm, kecamatan: e.target.value })}
                 className="mt-1 h-10 rounded-xl bg-slate-50"
               />
             </div>
