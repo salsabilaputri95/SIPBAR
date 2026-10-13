@@ -36,7 +36,6 @@ export async function getUsers(): Promise<ActionResponse<any[]>> {
         nip: true,
         role: true,
         avatar: true,
-        kecamatan: true,
         fungsiId: true,
         fungsi: {
           select: {
@@ -117,7 +116,6 @@ export async function createUser(rawInput: UserRegisterInput): Promise<ActionRes
         password: hashedPassword,
         role: validated.role,
         fungsiId: validated.fungsiId || null,
-        kecamatan: validated.kecamatan?.trim() || null,
       },
       select: {
         id: true,
@@ -125,7 +123,6 @@ export async function createUser(rawInput: UserRegisterInput): Promise<ActionRes
         name: true,
         nip: true,
         role: true,
-        kecamatan: true,
       },
     });
 
@@ -173,7 +170,6 @@ export async function updateUser(
         nip: validated.nip?.trim() || null,
         role: validated.role,
         fungsiId: validated.fungsiId || null,
-        kecamatan: validated.kecamatan?.trim() || null,
       },
     });
 

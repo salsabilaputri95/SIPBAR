@@ -21,7 +21,6 @@ model User {
   password        String            // Hashed using bcrypt
   role            Role              @default(PEGAWAI)
   avatar          String?
-  kecamatan       String?
   
   fungsiId        String?           @map("fungsi_id")
   fungsi          Fungsi?           @relation(fields: [fungsiId], references: [id], onDelete: Restrict)

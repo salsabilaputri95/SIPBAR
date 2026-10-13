@@ -141,25 +141,25 @@ async function main() {
   });
 
   const daftarPegawai = [
-    { name: "Imaniar Dwi Aryanti, S.TP.", kecamatan: "Bangkala Barat", username: "imaniar", password: "ima361", nip: "199001012015012001" },
-    { name: "Kasmawati Saleng, SE", kecamatan: "Binamu", username: "kasmawati", password: "kas303", nip: "198505122008012002" },
-    { name: "Misbahuddin, S.Si", kecamatan: "Bangkala Barat", username: "misbahuddin", password: "mis813", nip: "198803152011011003" },
-    { name: "ST. Syamriani S S.Kom", kecamatan: "Binamu", username: "st", password: "sts225", nip: "198907202012012004" },
-    { name: "Madsutriman Achmad, S.Si.", kecamatan: "Bangkala", username: "madsutriman", password: "mad413", nip: "198711102010011005" },
-    { name: "Ian Tryaldi Halim, S.Tr.Stat.", kecamatan: "Arungkeke", username: "ian", password: "ian691", nip: "199602052019011006" },
-    { name: "Muh. Reza Agung Wirawan, A.Md.Stat.", kecamatan: "Bontoramba", username: "muh", password: "muh913", nip: "199708142020011007" },
-    { name: "Achmad Syahrul Ramadhani, A.Md.", kecamatan: "Tarowang", username: "achmad", password: "ach844", nip: "199801222021011008" },
-    { name: "Sapril, A.Md. Kom", kecamatan: "Kelara", username: "sapril", password: "sap628", nip: "199204182014011009" },
-    { name: "Sudarnati M.", kecamatan: "Bangkala Barat", username: "sudarnati", password: "sud130", nip: "198609052009012010" },
-    { name: "Rima Mayyadah S.Tr.Stat.", kecamatan: "Turatea", username: "rima", password: "rim966", nip: "199712302020012011" },
-    { name: "Nur Azizah Tadjuddin A.Md.Stat.", kecamatan: "Tamalatea", username: "nurazizah", password: "nur258", nip: "199408222018012001" },
-    { name: "Dicki Abdurohman S.Tr.Stat.", kecamatan: "Rumbia", username: "dicki", password: "dic970", nip: "199510112018011013" },
-    { name: "Muhammad Muawwad MS, S.Tr. Stat", kecamatan: "Bangkala", username: "muhammad", password: "muh192", nip: "199606162019011014" },
-    { name: "Zainika Ichtarona, S.Tr.Stat", kecamatan: "Binamu", username: "zainika", password: "zai436", nip: "199804022021012015" },
-    { name: "Nur Lianasari, A.Md.Stat", kecamatan: "Bontoramba", username: "nurlianasari", password: "nur787", nip: "199505252018012016" },
-    { name: "Herlina Pujianti, S.Tr.Stat", kecamatan: "Batang", username: "herlina", password: "her443", nip: "199609192019012017" },
-    { name: "Andi Sri Rahmawati, A.Md", kecamatan: "Tamalatea", username: "andi", password: "and176", nip: "199312012016012018" },
-    { name: "Naufal Muhammad Iqbal, S.Tr. Stat", kecamatan: "Rumbia", username: "naufal", password: "nau188", nip: "199903102022011019" },
+    { name: "Imaniar Dwi Aryanti, S.TP.", username: "imaniar", password: "ima361", nip: "199001012015012001" },
+    { name: "Kasmawati Saleng, SE", username: "kasmawati", password: "kas303", nip: "198505122008012002" },
+    { name: "Misbahuddin, S.Si", username: "misbahuddin", password: "mis813", nip: "198803152011011003" },
+    { name: "ST. Syamriani S S.Kom", username: "st", password: "sts225", nip: "198907202012012004" },
+    { name: "Madsutriman Achmad, S.Si.", username: "madsutriman", password: "mad413", nip: "198711102010011005" },
+    { name: "Ian Tryaldi Halim, S.Tr.Stat.", username: "ian", password: "ian691", nip: "199602052019011006" },
+    { name: "Muh. Reza Agung Wirawan, A.Md.Stat.", username: "muh", password: "muh913", nip: "199708142020011007" },
+    { name: "Achmad Syahrul Ramadhani, A.Md.", username: "achmad", password: "ach844", nip: "199801222021011008" },
+    { name: "Sapril, A.Md. Kom", username: "sapril", password: "sap628", nip: "199204182014011009" },
+    { name: "Sudarnati M.", username: "sudarnati", password: "sud130", nip: "198609052009012010" },
+    { name: "Rima Mayyadah S.Tr.Stat.", username: "rima", password: "rim966", nip: "199712302020012011" },
+    { name: "Nur Azizah Tadjuddin A.Md.Stat.", username: "nurazizah", password: "nur258", nip: "199408222018012001" },
+    { name: "Dicki Abdurohman S.Tr.Stat.", username: "dicki", password: "dic970", nip: "199510112018011013" },
+    { name: "Muhammad Muawwad MS, S.Tr. Stat", username: "muhammad", password: "muh192", nip: "199606162019011014" },
+    { name: "Zainika Ichtarona, S.Tr.Stat", username: "zainika", password: "zai436", nip: "199804022021012015" },
+    { name: "Nur Lianasari, A.Md.Stat", username: "nurlianasari", password: "nur787", nip: "199505252018012016" },
+    { name: "Herlina Pujianti, S.Tr.Stat", username: "herlina", password: "her443", nip: "199609192019012017" },
+    { name: "Andi Sri Rahmawati, A.Md", username: "andi", password: "and176", nip: "199312012016012018" },
+    { name: "Naufal Muhammad Iqbal, S.Tr. Stat", username: "naufal", password: "nau188", nip: "199903102022011019" },
   ];
 
   for (const p of daftarPegawai) {
@@ -175,7 +175,6 @@ async function main() {
             name: p.name,
             password: pHash,
             role: Role.PEGAWAI,
-            kecamatan: p.kecamatan,
             fungsiId: fungsiMap.get("UMUM"),
           },
         });
@@ -190,7 +189,6 @@ async function main() {
         nip: p.nip,
         password: pHash,
         role: Role.PEGAWAI,
-        kecamatan: p.kecamatan,
         fungsiId: fungsiMap.get("UMUM"),
       },
       create: {
@@ -199,7 +197,6 @@ async function main() {
         nip: p.nip,
         password: pHash,
         role: Role.PEGAWAI,
-        kecamatan: p.kecamatan,
         fungsiId: fungsiMap.get("UMUM"),
       },
     });

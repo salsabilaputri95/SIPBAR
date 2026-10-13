@@ -14,7 +14,6 @@ export const UserRegisterSchema = z.object({
   password: z.string().min(6, "Password minimal 6 karakter"),
   role: z.enum(["SUPER_ADMIN", "ADMIN_GUDANG", "PEGAWAI"]).default("PEGAWAI"),
   fungsiId: z.string().optional().nullable(),
-  kecamatan: z.string().optional().nullable(),
 });
 
 export type UserRegisterInput = z.infer<typeof UserRegisterSchema>;
@@ -24,7 +23,6 @@ export const UserUpdateSchema = z.object({
   nip: z.string().optional().nullable(),
   role: z.enum(["SUPER_ADMIN", "ADMIN_GUDANG", "PEGAWAI"]),
   fungsiId: z.string().optional().nullable(),
-  kecamatan: z.string().optional().nullable(),
 });
 
 export type UserUpdateInput = z.infer<typeof UserUpdateSchema>;
