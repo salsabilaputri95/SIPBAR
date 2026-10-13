@@ -54,6 +54,8 @@ RUN adduser --system --uid 1001 nextjs
 # Copy essential runtime files
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nodejs /app/next.config.mjs ./next.config.mjs
+COPY --from=builder --chown=nextjs:nodejs /app/node24-patch.cjs ./node24-patch.cjs
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
@@ -65,4 +67,4 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD ["node", "node_modules/next/dist/bin/next", "start", "-d", ".next_app"]
+CMD ["node", "node_modules/next/dist/bin/next", "start"]
