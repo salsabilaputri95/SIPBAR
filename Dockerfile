@@ -18,6 +18,9 @@ RUN npm ci
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+# Install libc6-compat & openssl for Prisma detection on Alpine
+RUN apk add --no-cache libc6-compat openssl
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
