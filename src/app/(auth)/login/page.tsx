@@ -229,7 +229,7 @@ export default function LoginPage() {
           <Link href="/katalog">
             <Button variant="ghost" size="sm" className="text-slate-600 hover:text-[#0F2F64] hover:bg-slate-100 gap-2 font-medium">
               <PackageCheck className="w-4 h-4 text-sky-600" />
-              Katalog Stok Mandiri
+              Katalog Barang Kantor
               <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>

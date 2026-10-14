@@ -21,7 +21,7 @@ export default function HomePage() {
               href="/katalog"
               className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-[#0F2F64] hover:bg-slate-100 rounded-lg transition-colors"
             >
-              Katalog Stok
+              Katalog Barang Kantor
             </Link>
             <Link
               href="/login"

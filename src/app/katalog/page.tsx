@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 import { 
   Boxes, 
   Search, 
@@ -19,7 +20,9 @@ import {
   Info,
   Sparkles,
   MapPin,
-  Tag
+  Tag,
+  LayoutDashboard,
+  LogOut
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,6 +32,7 @@ import { getBarangList, getBarangMasterDropdowns } from "@/actions/barang.action
 import { BarangItem, StatusStok } from "@/types";
 
 export default function PublicCatalogPage() {
+  const { data: session } = useSession();
   const [items, setItems] = useState<BarangItem[]>([]);
   const [categories, setCategories] = useState<Array<{ id: string; nama: string }>>([]);
   const [warehouses, setWarehouses] = useState<Array<{ id: string; nama: string }>>([]);
@@ -134,21 +138,46 @@ export default function PublicCatalogPage() {
                   BPS 7304
                 </Badge>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Katalog Persediaan Barang Pegawai</p>
+              <p className="text-xs text-slate-500 font-medium">Katalog Barang Persediaan Kantor</p>
             </div>
           </Link>
 
           <div className="flex items-center gap-3">
-            <Link href="/login">
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 px-4 rounded-xl border-slate-300 text-[#0F2F64] font-semibold hover:bg-slate-100 gap-1.5"
-              >
-                <LogIn className="w-4 h-4 text-[#0284C7]" />
-                <span>Login</span>
-              </Button>
-            </Link>
+            {session?.user ? (
+              <div className="flex items-center gap-2">
+                <Link href={session.user.role === "PEGAWAI" ? "/pegawai" : "/dashboard"}>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="h-9 px-3.5 rounded-xl bg-[#0F2F64] hover:bg-[#0A1F42] text-white font-semibold shadow-xs gap-2"
+                  >
+                    <LayoutDashboard className="w-4 h-4 text-sky-400" />
+                    <span>{session.user.role === "PEGAWAI" ? "Dashboard Pegawai" : "Dashboard Admin"}</span>
+                  </Button>
+                </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => signOut({ callbackUrl: "/login" })}
+                  className="h-9 px-3 rounded-xl border-slate-200 text-slate-600 hover:text-red-600 hover:bg-red-50 gap-1.5"
+                  title="Keluar Akun"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline text-xs">Keluar</span>
+                </Button>
+              </div>
+            ) : (
+              <Link href="/login">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-9 px-4 rounded-xl border-slate-300 text-[#0F2F64] font-semibold hover:bg-slate-100 gap-1.5"
+                >
+                  <LogIn className="w-4 h-4 text-[#0284C7]" />
+                  <span>Login</span>
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -165,7 +194,7 @@ export default function PublicCatalogPage() {
               Monitoring Ketersediaan Stok Real-Time
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-              Katalog Persediaan Barang Kantor BPS Kabupaten Jeneponto
+              Katalog Barang Persediaan Kantor BPS Kabupaten Jeneponto
             </h1>
             <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
               Cek ketersediaan ATK, kertas, tinta printer, dan perlengkapan perkantoran secara transparan sebelum mengajukan kebutuhan unit kerja Anda ke bagian Tata Usaha.

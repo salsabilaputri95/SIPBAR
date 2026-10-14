@@ -50,7 +50,7 @@ export function AdminSidebar({ onCloseMobile }: AdminSidebarProps) {
       group: "LAPORAN & MONITORING",
       items: [
         { name: "Laporan & Ekspor", href: "/laporan", icon: BarChart3 },
-        { name: "Katalog Publik", href: "/katalog", icon: PackageSearch },
+        { name: "Katalog Barang Kantor", href: "/katalog", icon: PackageSearch },
       ],
     },
   ];

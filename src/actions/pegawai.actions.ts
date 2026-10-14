@@ -1,0 +1,445 @@
+"use server";
+
+import { prisma } from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
+import { generateKodeTransaksiKeluar } from "@/lib/code-generator";
+import { ActionResponse } from "@/types";
+
+export interface PegawaiProfileData {
+  id: string;
+  name: string;
+  username: string;
+  nip: string | null;
+  role: string;
+  avatar: string | null;
+  fungsiNama: string;
+  createdAt: Date;
+}
+
+export interface PegawaiRiwayatItem {
+  id: string;
+  kodeTransaksi: string;
+  tanggal: Date;
+  barangId: string;
+  barangNama: string;
+  barangKode: string;
+  kategoriNama: string;
+  satuanNama: string;
+  jumlahKeluar: number;
+  keterangan: string | null;
+  tandaTerimaNomor: string | null;
+  createdAt: Date;
+}
+
+export interface PegawaiDashboardData {
+  profile: PegawaiProfileData;
+  stats: {
+    totalTransaksi: number;
+    totalUnitDiambil: number;
+    transaksiTerakhir: {
+      tanggal: Date;
+      barangNama: string;
+      jumlah: number;
+      satuan: string;
+    } | null;
+  };
+  recentHistory: PegawaiRiwayatItem[];
+}
+
+export interface BarangOpsiPengambilan {
+  id: string;
+  kodeBarang: string;
+  namaBarang: string;
+  kategoriNama: string;
+  satuanNama: string;
+  gudangNama: string;
+  stok: number;
+}
+
+// 1. Ambil Profil & Ringkasan Dashboard Pegawai
+export async function getPegawaiDashboardData(): Promise<ActionResponse<PegawaiDashboardData>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return {
+        success: false,
+        error: "Sesi login telah berakhir. Silakan login kembali.",
+      };
+    }
+
+    const userId = session.user.id;
+
+    // Ambil data user dari database
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      include: { fungsi: true },
+    });
+
+    if (!user) {
+      return {
+        success: false,
+        error: "Data profil pegawai tidak ditemukan.",
+      };
+    }
+
+    // Ambil riwayat pengambilan barang milik pegawai ini
+    // Strictly filter hanya milik user bersangkutan (createdById ATAU penerimaNip jika terdaftar)
+    const whereClause: any = {
+      OR: [
+        { createdById: userId },
+        ...(user.nip ? [{ penerimaNip: user.nip }] : []),
+      ],
+    };
+
+    const rawHistory = await prisma.transaksiKeluar.findMany({
+      where: whereClause,
+      include: {
+        barang: {
+          include: {
+            satuan: true,
+            kategori: true,
+          },
+        },
+        tandaTerima: {
+          select: {
+            nomorDokumen: true,
+          },
+        },
+      },
+      orderBy: {
+        tanggal: "desc",
+      },
+      take: 50,
+    });
+
+    let totalUnitDiambil = 0;
+    const historyItems: PegawaiRiwayatItem[] = rawHistory.map((item) => {
+      totalUnitDiambil += item.jumlahKeluar;
+      return {
+        id: item.id,
+        kodeTransaksi: item.kodeTransaksi,
+        tanggal: item.tanggal,
+        barangId: item.barangId,
+        barangNama: item.barang.namaBarang,
+        barangKode: item.barang.kodeBarang,
+        kategoriNama: item.barang.kategori.nama,
+        satuanNama: item.barang.satuan.nama,
+        jumlahKeluar: item.jumlahKeluar,
+        keterangan: item.keterangan,
+        tandaTerimaNomor: item.tandaTerima?.nomorDokumen || null,
+        createdAt: item.createdAt,
+      };
+    });
+
+    const transaksiTerakhir = historyItems.length > 0
+      ? {
+          tanggal: historyItems[0].tanggal,
+          barangNama: historyItems[0].barangNama,
+          jumlah: historyItems[0].jumlahKeluar,
+          satuan: historyItems[0].satuanNama,
+        }
+      : null;
+
+    return {
+      success: true,
+      data: {
+        profile: {
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          nip: user.nip,
+          role: user.role,
+          avatar: user.avatar,
+          fungsiNama: user.fungsi?.nama || "BPS Kabupaten Jeneponto",
+          createdAt: user.createdAt,
+        },
+        stats: {
+          totalTransaksi: rawHistory.length,
+          totalUnitDiambil,
+          transaksiTerakhir,
+        },
+        recentHistory: historyItems,
+      },
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal memuat data dashboard pegawai.",
+    };
+  }
+}
+
+// 2. Ambil Riwayat Pengambilan Barang Pegawai (dengan filter pencarian)
+export async function getPegawaiRiwayatPengambilan(filter?: {
+  search?: string;
+  tanggalAwal?: string;
+  tanggalAkhir?: string;
+}): Promise<ActionResponse<PegawaiRiwayatItem[]>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return {
+        success: false,
+        error: "Sesi login telah berakhir.",
+      };
+    }
+
+    const userId = session.user.id;
+    const userNip = session.user.nip;
+    const search = filter?.search?.trim() || "";
+    const tanggalAwal = filter?.tanggalAwal ? new Date(`${filter.tanggalAwal}T00:00:00.000Z`) : undefined;
+    const tanggalAkhir = filter?.tanggalAkhir ? new Date(`${filter.tanggalAkhir}T23:59:59.999Z`) : undefined;
+
+    const baseOwnerCondition: any = {
+      OR: [
+        { createdById: userId },
+        ...(userNip ? [{ penerimaNip: userNip }] : []),
+      ],
+    };
+
+    const andConditions: any[] = [baseOwnerCondition];
+
+    if (search) {
+      andConditions.push({
+        OR: [
+          { kodeTransaksi: { contains: search, mode: "insensitive" } },
+          { keterangan: { contains: search, mode: "insensitive" } },
+          { barang: { namaBarang: { contains: search, mode: "insensitive" } } },
+          { barang: { kodeBarang: { contains: search, mode: "insensitive" } } },
+        ],
+      });
+    }
+
+    if (tanggalAwal || tanggalAkhir) {
+      const dateFilter: any = {};
+      if (tanggalAwal) dateFilter.gte = tanggalAwal;
+      if (tanggalAkhir) dateFilter.lte = tanggalAkhir;
+      andConditions.push({ tanggal: dateFilter });
+    }
+
+    const rawList = await prisma.transaksiKeluar.findMany({
+      where: { AND: andConditions },
+      include: {
+        barang: {
+          include: {
+            satuan: true,
+            kategori: true,
+          },
+        },
+        tandaTerima: {
+          select: {
+            nomorDokumen: true,
+          },
+        },
+      },
+      orderBy: {
+        tanggal: "desc",
+      },
+    });
+
+    const items: PegawaiRiwayatItem[] = rawList.map((item) => ({
+      id: item.id,
+      kodeTransaksi: item.kodeTransaksi,
+      tanggal: item.tanggal,
+      barangId: item.barangId,
+      barangNama: item.barang.namaBarang,
+      barangKode: item.barang.kodeBarang,
+      kategoriNama: item.barang.kategori.nama,
+      satuanNama: item.barang.satuan.nama,
+      jumlahKeluar: item.jumlahKeluar,
+      keterangan: item.keterangan,
+      tandaTerimaNomor: item.tandaTerima?.nomorDokumen || null,
+      createdAt: item.createdAt,
+    }));
+
+    return {
+      success: true,
+      data: items,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal memuat riwayat pengambilan.",
+    };
+  }
+}
+
+// 3. Ambil Daftar Barang Tersedia untuk Opsi Pengambilan
+export async function getBarangTersediaForPengambilan(): Promise<ActionResponse<BarangOpsiPengambilan[]>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return {
+        success: false,
+        error: "Sesi login tidak sah.",
+      };
+    }
+
+    const barangs = await prisma.barang.findMany({
+      where: {
+        stok: {
+          gt: 0,
+        },
+      },
+      include: {
+        kategori: true,
+        satuan: true,
+        gudang: true,
+      },
+      orderBy: {
+        namaBarang: "asc",
+      },
+    });
+
+    const options: BarangOpsiPengambilan[] = barangs.map((b) => ({
+      id: b.id,
+      kodeBarang: b.kodeBarang,
+      namaBarang: b.namaBarang,
+      kategoriNama: b.kategori.nama,
+      satuanNama: b.satuan.nama,
+      gudangNama: b.gudang.nama,
+      stok: b.stok,
+    }));
+
+    return {
+      success: true,
+      data: options,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal memuat opsi barang.",
+    };
+  }
+}
+
+// 4. Catat Pengambilan Barang Secara Mandiri (ACID Transaction & Anti-Minus)
+export async function catatPengambilanMandiri(input: {
+  barangId: string;
+  jumlah: number;
+  keterangan?: string;
+}): Promise<ActionResponse<any>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return {
+        success: false,
+        error: "Akses ditolak: Silakan login terlebih dahulu.",
+      };
+    }
+
+    const { barangId, jumlah, keterangan } = input;
+
+    // Validasi input
+    if (!barangId) {
+      return { success: false, error: "Pilih barang yang ingin diambil." };
+    }
+    if (!jumlah || jumlah < 1 || !Number.isInteger(jumlah)) {
+      return { success: false, error: "Jumlah pengambilan harus berupa bilangan bulat minimal 1 unit." };
+    }
+
+    const userId = session.user.id;
+    const userName = session.user.name;
+    const userNip = session.user.nip || null;
+
+    // Pastikan user dan fungsi valid
+    const dbUser = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { fungsiId: true },
+    });
+
+    let fungsiId = dbUser?.fungsiId || session.user.fungsiId;
+    if (!fungsiId) {
+      // Fallback ke fungsi UMUM jika belum terhubung
+      let defaultFungsi = await prisma.fungsi.findFirst({
+        where: { nama: { in: ["UMUM", "Umum"] } },
+      });
+      if (!defaultFungsi) {
+        defaultFungsi = await prisma.fungsi.findFirst();
+      }
+      fungsiId = defaultFungsi ? defaultFungsi.id : undefined;
+    }
+
+    if (!fungsiId) {
+      return {
+        success: false,
+        error: "Unit kerja / Fungsi belum terkonfigurasi. Hubungi Administrator.",
+      };
+    }
+
+    const newKode = await generateKodeTransaksiKeluar();
+
+    // Jalankan transaksi ACID di PostgreSQL
+    const result = await prisma.$transaction(async (tx) => {
+      // 1. Cek ketersediaan stok fisik barang saat ini
+      const barang = await tx.barang.findUnique({
+        where: { id: barangId },
+        include: { satuan: true },
+      });
+
+      if (!barang) {
+        throw new Error("Barang yang dipilih tidak ditemukan dalam sistem.");
+      }
+
+      // 2. Validasi Anti-Minus Kritis
+      if (barang.stok < jumlah) {
+        throw new Error(
+          `Stok tidak mencukupi! Sisa stok "${barang.namaBarang}" saat ini adalah ${barang.stok} ${barang.satuan.nama}, sedangkan permintaan Anda adalah ${jumlah} ${barang.satuan.nama}.`
+        );
+      }
+
+      // 3. Catat transaksi keluar
+      const logKeluar = await tx.transaksiKeluar.create({
+        data: {
+          kodeTransaksi: newKode,
+          tanggal: new Date(),
+          barangId: barang.id,
+          jumlahKeluar: jumlah,
+          penerimaNama: userName,
+          penerimaNip: userNip,
+          fungsiId: fungsiId!,
+          keterangan: keterangan?.trim() || "Pengambilan mandiri oleh pegawai",
+          createdById: userId,
+        },
+        include: {
+          barang: {
+            include: { satuan: true },
+          },
+          fungsi: true,
+        },
+      });
+
+      // 4. Potong saldo stok fisik secara atomik
+      const updatedBarang = await tx.barang.update({
+        where: { id: barangId },
+        data: {
+          stok: {
+            decrement: jumlah,
+          },
+        },
+      });
+
+      return { logKeluar, updatedBarang };
+    });
+
+    // Revalidasi seluruh rute yang menampilkan saldo stok dan riwayat
+    revalidatePath("/pegawai");
+    revalidatePath("/katalog");
+    revalidatePath("/dashboard");
+    revalidatePath("/transaksi-keluar");
+    revalidatePath("/inventaris");
+
+    return {
+      success: true,
+      message: `Pengambilan ${result.logKeluar.jumlahKeluar} ${result.logKeluar.barang.satuan.nama} "${result.logKeluar.barang.namaBarang}" berhasil dicatat (${result.logKeluar.kodeTransaksi}). Sisa stok saat ini: ${result.updatedBarang.stok} ${result.logKeluar.barang.satuan.nama}.`,
+      data: result.logKeluar,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal mencatat pengambilan barang.",
+    };
+  }
+}

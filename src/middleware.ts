@@ -47,11 +47,21 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    // Role PEGAWAI hanya dapat melihat Katalog & Saldo Publik, tidak boleh mutasi admin
+    // Role PEGAWAI dialihkan ke Dashboard Pegawai mandiri
     if (userRole === "PEGAWAI") {
-      return NextResponse.redirect(new URL("/katalog", req.url));
+      return NextResponse.redirect(new URL("/pegawai", req.url));
     }
 
+    return NextResponse.next();
+  }
+
+  // 4. Proteksi rute Dashboard Pegawai (/pegawai)
+  if (pathname.startsWith("/pegawai")) {
+    if (!isAuthenticated) {
+      const loginUrl = new URL("/login", req.url);
+      loginUrl.searchParams.set("callbackUrl", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
     return NextResponse.next();
   }
 
@@ -67,5 +77,6 @@ export const config = {
     "/laporan/:path*",
     "/tanda-terima/:path*",
     "/pengaturan/:path*",
+    "/pegawai/:path*",
   ],
 };
