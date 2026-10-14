@@ -146,7 +146,7 @@ export default function PublicCatalogPage() {
                 className="h-9 px-4 rounded-xl border-slate-300 text-[#0F2F64] font-semibold hover:bg-slate-100 gap-1.5"
               >
                 <LogIn className="w-4 h-4 text-[#0284C7]" />
-                <span>Masuk Admin</span>
+                <span>Login</span>
               </Button>
             </Link>
           </div>

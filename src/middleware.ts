@@ -9,15 +9,7 @@ export async function middleware(req: NextRequest) {
   const isAuthenticated = !!token;
   const userRole = token?.role;
 
-  // 1. Jika sudah login dan mencoba membuka halaman /login, redirect ke /dashboard
-  if (pathname === "/login") {
-    if (isAuthenticated) {
-      return NextResponse.redirect(new URL("/dashboard", req.url));
-    }
-    return NextResponse.next();
-  }
-
-  // 2. Proteksi rute khusus SUPER_ADMIN (/pengaturan/users, dll)
+  // 1. Proteksi rute khusus SUPER_ADMIN (/pengaturan/users, dll)
   if (pathname.startsWith("/pengaturan/users")) {
     if (!isAuthenticated) {
       const loginUrl = new URL("/login", req.url);
@@ -68,7 +60,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    "/login",
     "/dashboard/:path*",
     "/inventaris/:path*",
     "/transaksi-masuk/:path*",

@@ -105,7 +105,7 @@ function LoginForm() {
             </label>
             <Input
               type="text"
-              placeholder="Contoh: admingudang / 19940822..."
+              placeholder="Contoh: adminsipbar / imaniar"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               disabled={isLoading}
@@ -156,7 +156,7 @@ function LoginForm() {
               </>
             ) : (
               <>
-                <span>Masuk ke Dashboard</span>
+                <span>Masuk ke Akun</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
@@ -166,31 +166,31 @@ function LoginForm() {
         {/* Demo Account Helper Bar */}
         <div className="mt-6 pt-5 border-t border-slate-100">
           <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-center mb-2.5">
-            Akses Cepat Pengujian Akun
+            Akses Cepat Masuk Akun
           </p>
           <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
-              onClick={() => handleFillAccount("admingudang", "GudangBPS2026!")}
-              className="text-left p-2 rounded-lg border border-slate-200 bg-slate-50/60 hover:bg-sky-50 hover:border-sky-300 transition-colors group"
+              onClick={() => handleFillAccount("adminsipbar", "adminsipbar!")}
+              className="text-left p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-blue-50 hover:border-blue-300 transition-colors group"
             >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-sky-800">
-                <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
-                Admin Gudang
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-[#0F2F64]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#0F2F64]" />
+                Administrator SIPBAR
               </div>
-              <p className="text-[10px] text-slate-500 mt-0.5 truncate">admingudang</p>
+              <p className="text-[10px] text-slate-500 mt-0.5 truncate font-mono">adminsipbar</p>
             </button>
 
             <button
               type="button"
-              onClick={() => handleFillAccount("superadmin", "AdminBPS2026!")}
-              className="text-left p-2 rounded-lg border border-slate-200 bg-slate-50/60 hover:bg-blue-50 hover:border-blue-300 transition-colors group"
+              onClick={() => handleFillAccount("imaniar", "ima361")}
+              className="text-left p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-sky-50 hover:border-sky-300 transition-colors group"
             >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-[#0F2F64]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#0F2F64]" />
-                Super Admin IT
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-sky-800">
+                <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
+                Pegawai (Imaniar)
               </div>
-              <p className="text-[10px] text-slate-500 mt-0.5 truncate">superadmin</p>
+              <p className="text-[10px] text-slate-500 mt-0.5 truncate font-mono">imaniar</p>
             </button>
           </div>
         </div>

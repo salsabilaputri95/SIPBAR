@@ -28,7 +28,7 @@ export default function HomePage() {
               className="flex items-center gap-2 bg-[#0F2F64] hover:bg-[#0A1F42] text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition-all"
             >
               <LogIn className="w-4 h-4" />
-              <span>Masuk Admin</span>
+              <span>Login</span>
             </Link>
           </div>
         </div>
@@ -50,21 +50,14 @@ export default function HomePage() {
         </p>
 
         {/* Quick Action CTA */}
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <div className="mt-8 flex justify-center w-full sm:w-auto">
           <Link
             href="/katalog"
-            className="flex items-center justify-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-6 py-3.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all text-base"
+            className="flex items-center justify-center gap-2 bg-[#0284C7] hover:bg-[#0369A1] text-white px-7 py-3.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all text-base"
           >
             <Package className="w-5 h-5" />
             <span>Cek Stok Barang Sekarang</span>
             <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
-          <Link
-            href="/login"
-            className="flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 px-6 py-3.5 rounded-xl font-semibold shadow-sm hover:shadow transition-all text-base"
-          >
-            <LogIn className="w-5 h-5 text-slate-600" />
-            <span>Portal Admin Gudang</span>
           </Link>
         </div>
 
