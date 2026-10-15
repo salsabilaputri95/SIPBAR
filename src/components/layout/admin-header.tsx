@@ -58,7 +58,10 @@ export function AdminHeader({ onOpenMobileMenu }: AdminHeaderProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => signOut({ callbackUrl: "/login" })}
+            onClick={async () => {
+              await signOut({ redirect: false });
+              window.location.href = "/login";
+            }}
             className="h-8 text-xs font-medium text-slate-600 hover:text-red-600 hover:bg-red-50 hover:border-red-200 gap-1.5"
           >
             <LogOut className="w-3.5 h-3.5" />

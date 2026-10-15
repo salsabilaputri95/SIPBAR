@@ -148,7 +148,10 @@ export function AdminSidebar({ onCloseMobile }: AdminSidebarProps) {
           </div>
 
           <button
-            onClick={() => signOut({ callbackUrl: "/login" })}
+            onClick={async () => {
+              await signOut({ redirect: false });
+              window.location.href = "/login";
+            }}
             title="Keluar dari sistem"
             className="p-1.5 rounded-lg text-blue-200 hover:text-red-300 hover:bg-red-500/20 transition-colors"
           >

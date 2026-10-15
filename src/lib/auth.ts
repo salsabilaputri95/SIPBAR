@@ -99,6 +99,24 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      // Jika URL callback relatif (/login, /pegawai, /dashboard), kembalikan relatif agar browser tetap berada di domain aktif (misal ngrok)
+      if (url.startsWith("/")) return url;
+      try {
+        const urlObj = new URL(url);
+        // Izinkan jika domain tujuan adalah domain ngrok atau sama dengan origin
+        if (
+          urlObj.hostname.includes("ngrok") ||
+          urlObj.hostname.includes("canned-mashing-crimp.ngrok-free.dev") ||
+          urlObj.origin === baseUrl
+        ) {
+          return url;
+        }
+      } catch {
+        // Abaikan parsing error
+      }
+      return url.startsWith("http") ? url : baseUrl;
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
 };

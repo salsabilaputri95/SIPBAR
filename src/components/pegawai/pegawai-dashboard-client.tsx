@@ -132,7 +132,10 @@ export function PegawaiDashboardClient({
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => signOut({ callbackUrl: "/login" })}
+                onClick={async () => {
+                  await signOut({ redirect: false });
+                  window.location.href = "/login";
+                }}
                 className="h-9 px-3 rounded-xl border-slate-200 text-slate-600 hover:text-red-600 hover:bg-red-50 gap-1.5"
                 title="Keluar dari akun"
               >

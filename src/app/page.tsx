@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl leading-tight">
-          Transparansi & Akurasi Pengelolaan Logistik Persediaan Kantor
+          Transparansi & Akurasi Pengelolaan Barang Persediaan Kantor
         </h1>
 
         <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">

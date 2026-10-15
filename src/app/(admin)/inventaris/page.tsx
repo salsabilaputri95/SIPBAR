@@ -758,7 +758,7 @@ export default function InventarisAdminPage() {
             <DialogDescription className="text-xs text-slate-600 mt-2">
               Apakah Anda yakin ingin menghapus barang <strong>{selectedItem?.namaBarang}</strong> ({selectedItem?.kodeBarang})?
               <br /><br />
-              <span className="text-slate-500 italic">Catatan: Barang yang memiliki riwayat transaksi masuk/keluar tidak dapat dihapus demi menjaga integritas pembukuan logistik.</span>
+              <span className="text-slate-500 italic">Catatan: Barang yang memiliki riwayat transaksi masuk/keluar tidak dapat dihapus demi menjaga integritas pembukuan barang persediaan.</span>
             </DialogDescription>
           </DialogHeader>
 
