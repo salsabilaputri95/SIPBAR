@@ -38,6 +38,7 @@ import {
 } from "@/actions/pegawai.actions";
 import { PengambilanDialog } from "./pengambilan-dialog";
 import { formatTanggal } from "@/lib/utils";
+import { GithubBadge } from "@/components/layout/github-badge";
 
 interface PegawaiDashboardClientProps {
   initialData: PegawaiDashboardData;
@@ -450,8 +451,11 @@ export function PegawaiDashboardClient({
       />
 
       {/* Footer Minimalis */}
-      <footer className="w-full border-t border-slate-200/60 py-4 px-6 text-center text-xs text-slate-400 bg-white">
-        <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. SIPBAR Web v1.0.0.</p>
+      <footer className="w-full border-t border-slate-200/60 py-4 px-6 text-xs text-slate-400 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. SIPBAR Web v1.0.0.</p>
+          <GithubBadge />
+        </div>
       </footer>
     </div>
   );

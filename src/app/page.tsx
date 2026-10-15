@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Package, LogIn, CheckCircle2, ShieldAlert, ArrowRight, BarChart3, Database } from "lucide-react";
+import { GithubBadge } from "@/components/layout/github-badge";
 
 export default function HomePage() {
   return (
@@ -97,8 +98,9 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-6">
-        <div className="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
-          © 2026 Badan Pusat Statistik Kabupaten Jeneponto. SIPBAR Web v1.0.0.
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© 2026 Badan Pusat Statistik Kabupaten Jeneponto. SIPBAR Web v1.0.0.</p>
+          <GithubBadge />
         </div>
       </footer>
     </main>

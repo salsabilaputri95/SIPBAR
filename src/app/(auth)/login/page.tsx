@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { GithubBadge } from "@/components/layout/github-badge";
 
 function LoginForm() {
   const router = useRouter();
@@ -251,8 +252,11 @@ export default function LoginPage() {
       </main>
 
       {/* Footer Minimalis */}
-      <footer className="w-full border-t border-slate-200/60 py-4 px-6 text-center text-xs text-slate-400">
-        <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. Hak Cipta Dilindungi.</p>
+      <footer className="w-full border-t border-slate-200/60 py-4 px-6 bg-white/60">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+          <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. Hak Cipta Dilindungi.</p>
+          <GithubBadge />
+        </div>
       </footer>
     </div>
   );

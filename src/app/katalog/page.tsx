@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { getBarangList, getBarangMasterDropdowns } from "@/actions/barang.actions";
 import { BarangItem, StatusStok } from "@/types";
+import { GithubBadge } from "@/components/layout/github-badge";
 
 export default function PublicCatalogPage() {
   const { data: session } = useSession();
@@ -502,8 +503,11 @@ export default function PublicCatalogPage() {
       </main>
 
       {/* Footer Minimalis */}
-      <footer className="w-full border-t border-slate-200/60 py-5 px-6 text-center text-xs text-slate-400 mt-12 bg-white">
-        <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. Hak Cipta Dilindungi.</p>
+      <footer className="w-full border-t border-slate-200/60 py-5 px-6 mt-12 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+          <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. Hak Cipta Dilindungi.</p>
+          <GithubBadge />
+        </div>
       </footer>
     </div>
   );
