@@ -2,6 +2,27 @@ import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
+function getRedirectUrl(path: string, req: NextRequest): URL {
+  const forwardedHost = req.headers.get("x-forwarded-host");
+  const forwardedProto = req.headers.get("x-forwarded-proto") || "https";
+
+  let origin = "";
+  if (forwardedHost) {
+    origin = `${forwardedProto}://${forwardedHost}`;
+  } else if (process.env.NEXTAUTH_URL && !process.env.NEXTAUTH_URL.includes("localhost") && !process.env.NEXTAUTH_URL.includes("127.0.0.1")) {
+    origin = process.env.NEXTAUTH_URL.replace(/\/$/, "");
+  } else {
+    const host = req.headers.get("host");
+    if (host && !host.includes("localhost") && !host.includes("127.0.0.1")) {
+      origin = `https://${host}`;
+    } else {
+      origin = "https://canned-mashing-crimp.ngrok-free.dev";
+    }
+  }
+
+  return new URL(path, origin);
+}
+
 export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const { pathname } = req.nextUrl;
@@ -12,14 +33,14 @@ export async function middleware(req: NextRequest) {
   // 1. Proteksi rute khusus SUPER_ADMIN (/pengaturan/users, dll)
   if (pathname.startsWith("/pengaturan/users")) {
     if (!isAuthenticated) {
-      const loginUrl = new URL("/login", req.url);
+      const loginUrl = getRedirectUrl("/login", req);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
     }
 
     if (userRole !== "SUPER_ADMIN") {
       // Admin Gudang atau Pegawai tidak boleh mengelola user
-      return NextResponse.redirect(new URL("/dashboard?error=unauthorized", req.url));
+      return NextResponse.redirect(getRedirectUrl("/dashboard?error=unauthorized", req));
     }
 
     return NextResponse.next();
@@ -42,14 +63,14 @@ export async function middleware(req: NextRequest) {
 
   if (isProtectedAdminRoute) {
     if (!isAuthenticated) {
-      const loginUrl = new URL("/login", req.url);
+      const loginUrl = getRedirectUrl("/login", req);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
     }
 
     // Role PEGAWAI dialihkan ke Dashboard Pegawai mandiri
     if (userRole === "PEGAWAI") {
-      return NextResponse.redirect(new URL("/pegawai", req.url));
+      return NextResponse.redirect(getRedirectUrl("/pegawai", req));
     }
 
     return NextResponse.next();
@@ -58,7 +79,7 @@ export async function middleware(req: NextRequest) {
   // 4. Proteksi rute Dashboard Pegawai (/pegawai)
   if (pathname.startsWith("/pegawai")) {
     if (!isAuthenticated) {
-      const loginUrl = new URL("/login", req.url);
+      const loginUrl = getRedirectUrl("/login", req);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
     }

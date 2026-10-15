@@ -34,7 +34,7 @@ services:
     restart: always
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sipbardb}?schema=public
-      NEXTAUTH_URL: ${NEXTAUTH_URL:-https://canned-mashing-crimp.ngrok-free.dev}
+      NEXTAUTH_URL: https://canned-mashing-crimp.ngrok-free.dev
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-sipbar-bps-jeneponto-secret-key-2026-secure}
       NODE_ENV: production
       TZ: Asia/Makassar

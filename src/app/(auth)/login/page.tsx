@@ -60,8 +60,20 @@ function LoginForm() {
         }
         setIsLoading(false);
       } else if (res?.ok) {
-        const targetUrl = res?.url || callbackUrl;
-        window.location.href = targetUrl;
+        // Ekstrak path tujuan (misal /dashboard atau /pegawai) agar navigasi SELALU berada di domain aktif browser (misal ngrok)
+        let targetPath = callbackUrl || "/dashboard";
+        if (res?.url) {
+          try {
+            const parsed = new URL(res.url);
+            targetPath = parsed.pathname + parsed.search;
+          } catch {
+            targetPath = res.url.startsWith("/") ? res.url : "/dashboard";
+          }
+        }
+        if (!targetPath.startsWith("/")) {
+          targetPath = `/${targetPath}`;
+        }
+        window.location.href = targetPath;
       }
     } catch (err: any) {
       console.error("Autentikasi login error:", err);

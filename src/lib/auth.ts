@@ -100,7 +100,15 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      const activeBase = (process.env.NEXTAUTH_URL || baseUrl || "https://canned-mashing-crimp.ngrok-free.dev").replace(/\/$/, "");
+      const NGROK_DOMAIN = "https://canned-mashing-crimp.ngrok-free.dev";
+
+      // Abaikan jika process.env.NEXTAUTH_URL atau baseUrl merujuk ke localhost agar tidak terjebak di localhost:3001
+      let activeBase = NGROK_DOMAIN;
+      if (process.env.NEXTAUTH_URL && !process.env.NEXTAUTH_URL.includes("localhost") && !process.env.NEXTAUTH_URL.includes("127.0.0.1")) {
+        activeBase = process.env.NEXTAUTH_URL.replace(/\/$/, "");
+      } else if (baseUrl && !baseUrl.includes("localhost") && !baseUrl.includes("127.0.0.1")) {
+        activeBase = baseUrl.replace(/\/$/, "");
+      }
 
       // 1. Jika URL relatif (misal "/dashboard", "/pegawai", "/login"), jadikan Absolute URL valid
       if (url.startsWith("/")) {
@@ -110,16 +118,15 @@ export const authOptions: NextAuthOptions = {
       // 2. Jika URL sudah absolute (http/https)
       try {
         const urlObj = new URL(url);
-        // Jika URL merujuk ke localhost tapi activeBase bukan localhost, arahkan ke activeBase
-        if (urlObj.hostname === "localhost" && !activeBase.includes("localhost")) {
+        // Jika URL merujuk ke localhost/127.0.0.1, arahkan ke activeBase (ngrok)
+        if (urlObj.hostname === "localhost" || urlObj.hostname === "127.0.0.1") {
           return `${activeBase}${urlObj.pathname}${urlObj.search}${urlObj.hash}`;
         }
 
         if (
           urlObj.hostname.includes("ngrok") ||
           urlObj.hostname.includes("canned-mashing-crimp.ngrok-free.dev") ||
-          urlObj.origin === activeBase ||
-          urlObj.origin === baseUrl
+          urlObj.origin === activeBase
         ) {
           return url;
         }
