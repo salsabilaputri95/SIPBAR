@@ -100,14 +100,25 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      // Jika URL callback relatif (/login, /pegawai, /dashboard), kembalikan relatif agar browser tetap berada di domain aktif (misal ngrok)
-      if (url.startsWith("/")) return url;
+      const activeBase = (process.env.NEXTAUTH_URL || baseUrl || "https://canned-mashing-crimp.ngrok-free.dev").replace(/\/$/, "");
+
+      // 1. Jika URL relatif (misal "/dashboard", "/pegawai", "/login"), jadikan Absolute URL valid
+      if (url.startsWith("/")) {
+        return `${activeBase}${url}`;
+      }
+
+      // 2. Jika URL sudah absolute (http/https)
       try {
         const urlObj = new URL(url);
-        // Izinkan jika domain tujuan adalah domain ngrok atau sama dengan origin
+        // Jika URL merujuk ke localhost tapi activeBase bukan localhost, arahkan ke activeBase
+        if (urlObj.hostname === "localhost" && !activeBase.includes("localhost")) {
+          return `${activeBase}${urlObj.pathname}${urlObj.search}${urlObj.hash}`;
+        }
+
         if (
           urlObj.hostname.includes("ngrok") ||
           urlObj.hostname.includes("canned-mashing-crimp.ngrok-free.dev") ||
+          urlObj.origin === activeBase ||
           urlObj.origin === baseUrl
         ) {
           return url;
@@ -115,7 +126,8 @@ export const authOptions: NextAuthOptions = {
       } catch {
         // Abaikan parsing error
       }
-      return url.startsWith("http") ? url : baseUrl;
+
+      return activeBase;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,

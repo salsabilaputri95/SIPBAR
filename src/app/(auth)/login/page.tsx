@@ -53,13 +53,18 @@ function LoginForm() {
       });
 
       if (res?.error) {
-        setErrorMessage(res.error || "Gagal masuk. Periksa kembali username dan kata sandi Anda.");
+        if (res.error === "CredentialsSignin") {
+          setErrorMessage("Username / NIP atau kata sandi yang Anda masukkan salah.");
+        } else {
+          setErrorMessage(res.error || "Gagal masuk. Periksa kembali username dan kata sandi Anda.");
+        }
         setIsLoading(false);
       } else if (res?.ok) {
-        router.push(callbackUrl);
-        router.refresh();
+        const targetUrl = res?.url || callbackUrl;
+        window.location.href = targetUrl;
       }
     } catch (err: any) {
+      console.error("Autentikasi login error:", err);
       setErrorMessage("Terjadi gangguan saat menghubungkan ke server autentikasi.");
       setIsLoading(false);
     }
