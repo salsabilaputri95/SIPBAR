@@ -53,3 +53,7 @@ vba_dump.txt
 extract_vba.py
 temp_extract/
 
+# Folder cadangan lokal sebelum format penyimpanan
+/penting/
+
+
