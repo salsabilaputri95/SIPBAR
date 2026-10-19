@@ -90,6 +90,7 @@ export async function getTransaksiMasukList(
         satuanNama: m.barang.satuan.nama,
         jumlahMasuk: m.jumlahMasuk,
         hargaBeli: m.hargaBeli ? Number(m.hargaBeli) : null,
+        hargaSatuan: m.hargaBeli && m.jumlahMasuk > 0 ? Math.round(Number(m.hargaBeli) / m.jumlahMasuk) : null,
         sumberPengadaan: m.sumberPengadaan,
         keterangan: m.keterangan,
         createdByName: m.createdBy.name,

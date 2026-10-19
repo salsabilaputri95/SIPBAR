@@ -21,7 +21,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { getBarangList } from "@/actions/barang.actions";
 import { getTransaksiMasukList } from "@/actions/masuk.actions";
 import { getTransaksiKeluarList, getKeluarMetadata } from "@/actions/keluar.actions";
-import { formatTanggal } from "@/lib/utils";
+import { formatTanggal, formatRupiah } from "@/lib/utils";
 
 type ReportType = "rekap" | "masuk" | "keluar";
 
@@ -317,6 +317,8 @@ export default function LaporanPage() {
                   <th className="py-3 px-4">Nama Barang Persediaan</th>
                   <th className="py-3 px-4 text-right">Jumlah Masuk</th>
                   <th className="py-3 px-4">Sumber Pengadaan / Vendor</th>
+                  <th className="py-3 px-4 text-right">Harga Satuan</th>
+                  <th className="py-3 px-4 text-right">Total Harga</th>
                 </tr>
               </thead>
             )}
@@ -337,14 +339,14 @@ export default function LaporanPage() {
             <tbody className="divide-y divide-slate-100 font-medium text-xs">
               {isLoading ? (
                 <tr>
-                  <td colSpan={6} className="py-12 text-center text-slate-400">
+                  <td colSpan={reportType === "masuk" ? 8 : 6} className="py-12 text-center text-slate-400">
                     <div className="w-6 h-6 border-2 border-slate-300 border-t-[#0284C7] rounded-full animate-spin mx-auto mb-2" />
                     <p>Memuat data pratinjau laporan...</p>
                   </td>
                 </tr>
               ) : previewData.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="py-12 text-center text-slate-400">
+                  <td colSpan={reportType === "masuk" ? 8 : 6} className="py-12 text-center text-slate-400">
                     <FileSpreadsheet className="w-8 h-8 mx-auto text-slate-300 mb-2" />
                     <p className="font-semibold text-slate-700">Tidak ada data untuk filter ini</p>
                   </td>
@@ -375,6 +377,18 @@ export default function LaporanPage() {
                           +{item.jumlahMasuk} <span className="font-normal text-[10px] text-slate-500">{item.satuanNama}</span>
                         </td>
                         <td className="py-2.5 px-4 text-slate-600">{item.sumberPengadaan || "-"}</td>
+                        <td className="py-2.5 px-4 text-right text-emerald-700 font-semibold">
+                          {item.hargaSatuan ? (
+                            <span>{formatRupiah(item.hargaSatuan)}</span>
+                          ) : item.hargaBeli && item.jumlahMasuk > 0 ? (
+                            <span>{formatRupiah(Math.round(item.hargaBeli / item.jumlahMasuk))}</span>
+                          ) : (
+                            "-"
+                          )}
+                        </td>
+                        <td className="py-2.5 px-4 text-right font-bold text-slate-900">
+                          {item.hargaBeli ? formatRupiah(item.hargaBeli) : "-"}
+                        </td>
                       </>
                     )}
 

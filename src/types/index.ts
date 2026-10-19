@@ -42,6 +42,7 @@ export interface TransaksiMasukItem {
   satuanNama: string;
   jumlahMasuk: number;
   hargaBeli?: number | null;
+  hargaSatuan?: number | null;
   sumberPengadaan?: string | null;
   keterangan?: string | null;
   createdByName: string;

@@ -154,17 +154,17 @@ export async function GET(request: NextRequest) {
       const worksheet = workbook.addWorksheet("Barang Masuk");
 
       // Title & Header
-      worksheet.mergeCells("A1:G1");
+      worksheet.mergeCells("A1:I1");
       worksheet.getCell("A1").value = "BADAN PUSAT STATISTIK KABUPATEN JENEPONTO";
       worksheet.getCell("A1").font = { name: "Arial", size: 13, bold: true, color: { argb: "0F2F64" } };
       worksheet.getCell("A1").alignment = { vertical: "middle", horizontal: "center" };
 
-      worksheet.mergeCells("A2:G2");
+      worksheet.mergeCells("A2:I2");
       worksheet.getCell("A2").value = "LAPORAN PENERIMAAN / PENGADAAN BARANG MASUK";
       worksheet.getCell("A2").font = { name: "Arial", size: 11, bold: true };
       worksheet.getCell("A2").alignment = { vertical: "middle", horizontal: "center" };
 
-      worksheet.mergeCells("A3:G3");
+      worksheet.mergeCells("A3:I3");
       const periodeStr = tanggalAwal && tanggalAkhir ? `${tanggalAwal} s/d ${tanggalAkhir}` : "Seluruh Periode";
       worksheet.getCell("A3").value = `Periode: ${periodeStr} | Dicetak: ${tglExportStr}`;
       worksheet.getCell("A3").font = { name: "Arial", size: 9, italic: true };
@@ -172,7 +172,7 @@ export async function GET(request: NextRequest) {
 
       worksheet.addRow([]);
 
-      const headers = ["No", "Kode Transaksi", "Tanggal", "Nama Barang Persediaan", "Satuan", "Jumlah Masuk", "Sumber Pengadaan / Vendor"];
+      const headers = ["No", "Kode Transaksi", "Tanggal", "Nama Barang Persediaan", "Satuan", "Jumlah Masuk", "Harga Satuan (Rp)", "Total Harga (Rp)", "Sumber Pengadaan / Vendor"];
       const headerRow = worksheet.addRow(headers);
       headerRow.height = 24;
       headerRow.eachCell((cell) => {
@@ -183,8 +183,13 @@ export async function GET(request: NextRequest) {
       });
 
       let totalMasuk = 0;
+      let totalNilai = 0;
       list.forEach((item, idx) => {
         totalMasuk += item.jumlahMasuk;
+        const hargaBeliNum = item.hargaBeli ? Number(item.hargaBeli) : null;
+        const hargaSatuanNum = hargaBeliNum && item.jumlahMasuk > 0 ? Math.round(hargaBeliNum / item.jumlahMasuk) : null;
+        if (hargaBeliNum) totalNilai += hargaBeliNum;
+
         const row = worksheet.addRow([
           idx + 1,
           item.kodeTransaksi,
@@ -192,6 +197,8 @@ export async function GET(request: NextRequest) {
           item.barang.namaBarang,
           item.barang.satuan.nama,
           item.jumlahMasuk,
+          hargaSatuanNum ?? "-",
+          hargaBeliNum ?? "-",
           item.sumberPengadaan || "-",
         ]);
         row.getCell(1).alignment = { horizontal: "center" };
@@ -200,6 +207,19 @@ export async function GET(request: NextRequest) {
         row.getCell(5).alignment = { horizontal: "center" };
         row.getCell(6).alignment = { horizontal: "right" };
         row.getCell(6).numFmt = "#,##0";
+        if (hargaSatuanNum) {
+          row.getCell(7).alignment = { horizontal: "right" };
+          row.getCell(7).numFmt = "#,##0";
+        } else {
+          row.getCell(7).alignment = { horizontal: "center" };
+        }
+        if (hargaBeliNum) {
+          row.getCell(8).alignment = { horizontal: "right" };
+          row.getCell(8).numFmt = "#,##0";
+        } else {
+          row.getCell(8).alignment = { horizontal: "center" };
+        }
+
         row.eachCell((c) => {
           c.border = {
             top: { style: "thin", color: { argb: "CCCCCC" } },
@@ -210,11 +230,15 @@ export async function GET(request: NextRequest) {
         });
       });
 
-      const totalRow = worksheet.addRow(["", "", "", "TOTAL PENGADAAN MASUK", "", totalMasuk, ""]);
+      const totalRow = worksheet.addRow(["", "", "", "TOTAL PENGADAAN MASUK", "", totalMasuk, "", totalNilai > 0 ? totalNilai : "-", ""]);
       totalRow.font = { name: "Arial", size: 10, bold: true };
       totalRow.getCell(4).alignment = { horizontal: "right" };
       totalRow.getCell(6).alignment = { horizontal: "right" };
       totalRow.getCell(6).numFmt = "#,##0";
+      if (totalNilai > 0) {
+        totalRow.getCell(8).alignment = { horizontal: "right" };
+        totalRow.getCell(8).numFmt = "#,##0";
+      }
       totalRow.eachCell((c) => {
         c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "F1F5F9" } };
         c.border = { top: { style: "double" }, bottom: { style: "double" } };
@@ -227,6 +251,8 @@ export async function GET(request: NextRequest) {
         { width: 36 },
         { width: 12 },
         { width: 16 },
+        { width: 18 },
+        { width: 20 },
         { width: 28 },
       ];
     } else {

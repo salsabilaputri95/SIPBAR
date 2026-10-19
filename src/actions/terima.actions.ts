@@ -119,9 +119,9 @@ export async function createTandaTerima(
         data: {
           nomorDokumen,
           tanggalDokumen: new Date(),
-          kasubbagNama: input.kasubbagNama?.trim() || "Imaniar Dwi Aryanti, S.TP",
-          kasubbagNip: input.kasubbagNip?.trim() || null,
-          kasubbagJabatan: input.kasubbagJabatan?.trim() || "Kepala Subbagian Umum BPS Kabupaten Jeneponto",
+          kasubbagNama: input.kasubbagNama?.trim() || process.env.DEFAULT_KASUBBAG_NAMA || "Imaniar Dwi Aryanti, S.TP",
+          kasubbagNip: input.kasubbagNip?.trim() || process.env.DEFAULT_KASUBBAG_NIP || "199001012015012001",
+          kasubbagJabatan: input.kasubbagJabatan?.trim() || process.env.DEFAULT_KASUBBAG_JABATAN || "Kepala Subbagian Umum BPS Kabupaten Jeneponto",
         },
       });
 

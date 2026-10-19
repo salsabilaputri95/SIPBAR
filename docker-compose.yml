@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: sipbarpassword123
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: sipbardb
     ports:
       - "5432:5432"
@@ -25,7 +25,7 @@ services:
     depends_on:
       - sipbar-db
     environment:
-      - DATABASE_URL=postgresql://postgres:sipbarpassword123@sipbar-db:5432/sipbardb?schema=public
+      - DATABASE_URL=postgresql://postgres:postgres@sipbar-db:5432/sipbardb?schema=public
       - NEXTAUTH_URL=http://localhost:3000
       - NEXTAUTH_SECRET=rahasia_super_aman_jwt_bps_jeneponto_2026_xyz_secret
       - NODE_ENV=production

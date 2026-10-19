@@ -45,7 +45,7 @@ export default function BuatTandaTerimaPage() {
   // Signer Details
   const [signerForm, setSignerForm] = useState({
     kasubbagNama: "Imaniar Dwi Aryanti, S.TP",
-    kasubbagNip: "",
+    kasubbagNip: "199001012015012001",
     kasubbagJabatan: "Kepala Subbagian Umum BPS Kabupaten Jeneponto",
   });
 
@@ -361,7 +361,7 @@ export default function BuatTandaTerimaPage() {
                 </h4>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-700">Nama Pejabat Penyerah *</label>
+                  <label className="text-[11px] font-semibold text-slate-700">Nama Pejabat Penyetuju *</label>
                   <Input
                     type="text"
                     value={signerForm.kasubbagNama}
@@ -375,7 +375,7 @@ export default function BuatTandaTerimaPage() {
                   <label className="text-[11px] font-semibold text-slate-700">NIP Pejabat (Opsional)</label>
                   <Input
                     type="text"
-                    placeholder="Contoh: 19850101 201001 2 001"
+                    placeholder="Contoh: 19900101 201501 2 001"
                     value={signerForm.kasubbagNip}
                     onChange={(e) => setSignerForm({ ...signerForm, kasubbagNip: e.target.value })}
                     className="mt-1 h-9 rounded-xl text-xs bg-slate-50 font-medium"
