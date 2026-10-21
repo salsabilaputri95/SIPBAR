@@ -23,7 +23,8 @@ import {
   Sparkles,
   TrendingDown,
   RefreshCw,
-  ExternalLink
+  ExternalLink,
+  Pencil
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,6 +38,7 @@ import {
   getPegawaiRiwayatPengambilan
 } from "@/actions/pegawai.actions";
 import { PengambilanDialog } from "./pengambilan-dialog";
+import { EditPengambilanDialog } from "./edit-pengambilan-dialog";
 import { formatTanggal } from "@/lib/utils";
 import { GithubBadge } from "@/components/layout/github-badge";
 
@@ -52,12 +54,19 @@ export function PegawaiDashboardClient({
   const [data, setData] = useState<PegawaiDashboardData>(initialData);
   const [historyItems, setHistoryItems] = useState<PegawaiRiwayatItem[]>(initialData.recentHistory);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState<PegawaiRiwayatItem | null>(null);
   const [successNotice, setSuccessNotice] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const profile = data.profile;
   const stats = data.stats;
+
+  const handleOpenEdit = (item: PegawaiRiwayatItem) => {
+    setEditingItem(item);
+    setEditDialogOpen(true);
+  };
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
@@ -390,6 +399,7 @@ export function PegawaiDashboardClient({
                       <th className="px-5 py-3.5 text-center">Jumlah Diambil</th>
                       <th className="px-5 py-3.5">Keperluan / Keterangan</th>
                       <th className="px-5 py-3.5 text-center">Tanda Terima</th>
+                      <th className="px-5 py-3.5 text-center">Aksi</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
@@ -435,6 +445,18 @@ export function PegawaiDashboardClient({
                             </Badge>
                           )}
                         </td>
+                        <td className="px-5 py-4 text-center whitespace-nowrap">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleOpenEdit(item)}
+                            className="h-8 px-2.5 rounded-lg border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-sky-50 hover:border-sky-200 gap-1.5 text-xs font-semibold shadow-2xs transition-all"
+                            title="Edit data pengambilan ini"
+                          >
+                            <Pencil className="w-3.5 h-3.5 text-sky-600" />
+                            <span>Edit</span>
+                          </Button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -449,6 +471,15 @@ export function PegawaiDashboardClient({
       <PengambilanDialog
         open={dialogOpen}
         onOpenChange={setDialogOpen}
+        availableItems={availableItems}
+        onSuccess={handleSuccessPengambilan}
+      />
+
+      {/* Modal / Dialog Edit Pengambilan Barang */}
+      <EditPengambilanDialog
+        open={editDialogOpen}
+        onOpenChange={setEditDialogOpen}
+        item={editingItem}
         availableItems={availableItems}
         onSuccess={handleSuccessPengambilan}
       />

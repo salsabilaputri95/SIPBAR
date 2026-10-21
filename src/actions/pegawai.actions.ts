@@ -30,6 +30,7 @@ export interface PegawaiRiwayatItem {
   jumlahKeluar: number;
   keterangan: string | null;
   tandaTerimaNomor: string | null;
+  tandaTerimaId?: string | null;
   createdAt: Date;
 }
 
@@ -129,6 +130,7 @@ export async function getPegawaiDashboardData(): Promise<ActionResponse<PegawaiD
         jumlahKeluar: item.jumlahKeluar,
         keterangan: item.keterangan,
         tandaTerimaNomor: item.tandaTerima?.nomorDokumen || null,
+        tandaTerimaId: item.tandaTerimaId || null,
         createdAt: item.createdAt,
       };
     });
@@ -251,6 +253,7 @@ export async function getPegawaiRiwayatPengambilan(filter?: {
       jumlahKeluar: item.jumlahKeluar,
       keterangan: item.keterangan,
       tandaTerimaNomor: item.tandaTerima?.nomorDokumen || null,
+      tandaTerimaId: item.tandaTerimaId || null,
       createdAt: item.createdAt,
     }));
 
@@ -440,6 +443,300 @@ export async function catatPengambilanMandiri(input: {
     return {
       success: false,
       error: error.message || "Gagal mencatat pengambilan barang.",
+    };
+  }
+}
+
+// 5. Update / Edit Transaksi Pengambilan Barang Mandiri (ACID & Anti-Minus)
+export async function updatePengambilanMandiri(input: {
+  transaksiId: string;
+  barangId: string;
+  jumlah: number;
+  keterangan?: string;
+  tanggal?: Date | string;
+}): Promise<ActionResponse<any>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return {
+        success: false,
+        error: "Akses ditolak: Silakan login terlebih dahulu.",
+      };
+    }
+
+    const { transaksiId, barangId, jumlah, keterangan, tanggal } = input;
+
+    if (!transaksiId) {
+      return { success: false, error: "ID transaksi tidak valid." };
+    }
+    if (!barangId) {
+      return { success: false, error: "Pilih barang yang ingin diambil." };
+    }
+    if (!jumlah || jumlah < 1 || !Number.isInteger(jumlah)) {
+      return {
+        success: false,
+        error: "Jumlah pengambilan harus berupa bilangan bulat minimal 1 unit.",
+      };
+    }
+
+    const userId = session.user.id;
+    const dbUser = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, nip: true, role: true },
+    });
+
+    if (!dbUser) {
+      return { success: false, error: "Data pengguna tidak ditemukan." };
+    }
+
+    // Ambil data transaksi lama
+    const existingTx = await prisma.transaksiKeluar.findUnique({
+      where: { id: transaksiId },
+      include: {
+        barang: { include: { satuan: true } },
+      },
+    });
+
+    if (!existingTx) {
+      return { success: false, error: "Transaksi pengambilan tidak ditemukan." };
+    }
+
+    // Verifikasi kepemilikan (hanya pembuat atau NIP penerima atau Admin)
+    const isOwner =
+      existingTx.createdById === dbUser.id ||
+      (dbUser.nip && existingTx.penerimaNip === dbUser.nip);
+    const isAdmin = dbUser.role === "SUPER_ADMIN" || dbUser.role === "ADMIN_GUDANG";
+
+    if (!isOwner && !isAdmin) {
+      return {
+        success: false,
+        error: "Anda tidak memiliki wewenang untuk mengubah transaksi pegawai lain.",
+      };
+    }
+
+    // Cek jika sudah diterbitkan tanda terima resmi
+    if (existingTx.tandaTerimaId) {
+      if (existingTx.barangId !== barangId || existingTx.jumlahKeluar !== jumlah) {
+        return {
+          success: false,
+          error: "Transaksi ini telah memiliki Surat Tanda Terima resmi. Barang dan kuantitas terkunci dari perubahan.",
+        };
+      }
+    }
+
+    // Eksekusi penyesuaian stok secara ACID
+    const result = await prisma.$transaction(async (tx) => {
+      const isSameBarang = existingTx.barangId === barangId;
+      const oldJumlah = existingTx.jumlahKeluar;
+      const newJumlah = jumlah;
+
+      let updatedBarang;
+
+      if (isSameBarang) {
+        const delta = newJumlah - oldJumlah;
+        if (delta > 0) {
+          // Permintaan ditambah: cek ketersediaan stok
+          const currentBarang = await tx.barang.findUnique({
+            where: { id: existingTx.barangId },
+            include: { satuan: true },
+          });
+
+          if (!currentBarang) {
+            throw new Error("Barang tidak ditemukan dalam database.");
+          }
+
+          if (currentBarang.stok < delta) {
+            throw new Error(
+              `Stok tidak mencukupi untuk penambahan! Sisa stok "${currentBarang.namaBarang}" saat ini adalah ${currentBarang.stok} ${currentBarang.satuan.nama}, sedangkan Anda meminta penambahan sebanyak ${delta} ${currentBarang.satuan.nama}.`
+            );
+          }
+
+          updatedBarang = await tx.barang.update({
+            where: { id: existingTx.barangId },
+            data: {
+              stok: {
+                decrement: delta,
+              },
+            },
+            include: { satuan: true },
+          });
+        } else if (delta < 0) {
+          // Permintaan dikurangi: kembalikan kelebihan ke stok gudang
+          const refund = Math.abs(delta);
+          updatedBarang = await tx.barang.update({
+            where: { id: existingTx.barangId },
+            data: {
+              stok: {
+                increment: refund,
+              },
+            },
+            include: { satuan: true },
+          });
+        } else {
+          // Jumlah tetap sama
+          updatedBarang = await tx.barang.findUnique({
+            where: { id: existingTx.barangId },
+            include: { satuan: true },
+          });
+        }
+      } else {
+        // Ganti jenis barang:
+        // 1. Kembalikan kuantitas barang lama ke stok
+        await tx.barang.update({
+          where: { id: existingTx.barangId },
+          data: {
+            stok: {
+              increment: oldJumlah,
+            },
+          },
+        });
+
+        // 2. Cek ketersediaan barang baru
+        const newBarang = await tx.barang.findUnique({
+          where: { id: barangId },
+          include: { satuan: true },
+        });
+
+        if (!newBarang) {
+          throw new Error("Barang pengganti yang dipilih tidak ditemukan.");
+        }
+
+        if (newBarang.stok < newJumlah) {
+          throw new Error(
+            `Stok barang pengganti tidak mencukupi! Sisa stok "${newBarang.namaBarang}" adalah ${newBarang.stok} ${newBarang.satuan.nama}, sedangkan permintaan Anda adalah ${newJumlah} ${newBarang.satuan.nama}.`
+          );
+        }
+
+        // 3. Potong stok barang baru
+        updatedBarang = await tx.barang.update({
+          where: { id: barangId },
+          data: {
+            stok: {
+              decrement: newJumlah,
+            },
+          },
+          include: { satuan: true },
+        });
+      }
+
+      // Update data transaksi keluar
+      const updatedTx = await tx.transaksiKeluar.update({
+        where: { id: transaksiId },
+        data: {
+          barangId: barangId,
+          jumlahKeluar: newJumlah,
+          keterangan: keterangan?.trim() || "Pengambilan mandiri oleh pegawai",
+          ...(tanggal ? { tanggal: new Date(tanggal) } : {}),
+        },
+        include: {
+          barang: {
+            include: { satuan: true, kategori: true },
+          },
+          fungsi: true,
+          tandaTerima: true,
+        },
+      });
+
+      return { updatedTx, updatedBarang };
+    });
+
+    revalidatePath("/pegawai");
+    revalidatePath("/katalog");
+    revalidatePath("/dashboard");
+    revalidatePath("/transaksi-keluar");
+    revalidatePath("/inventaris");
+
+    return {
+      success: true,
+      message: `Perubahan transaksi ${result.updatedTx.kodeTransaksi} (${result.updatedTx.barang.namaBarang} - ${result.updatedTx.jumlahKeluar} ${result.updatedTx.barang.satuan.nama}) berhasil disimpan.`,
+      data: result.updatedTx,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal memperbarui transaksi pengambilan.",
+    };
+  }
+}
+
+// 6. Batalkan / Hapus Transaksi Pengambilan Mandiri (Rollback Stok)
+export async function hapusPengambilanMandiri(transaksiId: string): Promise<ActionResponse<any>> {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Silakan login terlebih dahulu." };
+    }
+
+    const userId = session.user.id;
+    const dbUser = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, nip: true, role: true },
+    });
+
+    if (!dbUser) {
+      return { success: false, error: "Pengguna tidak ditemukan." };
+    }
+
+    const existingTx = await prisma.transaksiKeluar.findUnique({
+      where: { id: transaksiId },
+      include: {
+        barang: { include: { satuan: true } },
+      },
+    });
+
+    if (!existingTx) {
+      return { success: false, error: "Transaksi tidak ditemukan." };
+    }
+
+    const isOwner =
+      existingTx.createdById === dbUser.id ||
+      (dbUser.nip && existingTx.penerimaNip === dbUser.nip);
+    const isAdmin = dbUser.role === "SUPER_ADMIN" || dbUser.role === "ADMIN_GUDANG";
+
+    if (!isOwner && !isAdmin) {
+      return {
+        success: false,
+        error: "Anda tidak memiliki izin membatalkan transaksi pegawai lain.",
+      };
+    }
+
+    if (existingTx.tandaTerimaId) {
+      return {
+        success: false,
+        error: "Transaksi ini telah memiliki Surat Tanda Terima resmi sehingga tidak dapat dibatalkan secara sepihak.",
+      };
+    }
+
+    // Rollback stok & hapus transaksi secara ACID
+    await prisma.$transaction(async (tx) => {
+      await tx.barang.update({
+        where: { id: existingTx.barangId },
+        data: {
+          stok: {
+            increment: existingTx.jumlahKeluar,
+          },
+        },
+      });
+
+      await tx.transaksiKeluar.delete({
+        where: { id: transaksiId },
+      });
+    });
+
+    revalidatePath("/pegawai");
+    revalidatePath("/katalog");
+    revalidatePath("/dashboard");
+    revalidatePath("/transaksi-keluar");
+    revalidatePath("/inventaris");
+
+    return {
+      success: true,
+      message: `Transaksi ${existingTx.kodeTransaksi} berhasil dibatalkan dan ${existingTx.jumlahKeluar} ${existingTx.barang.satuan.nama} telah dikembalikan ke stok fisik gudang.`,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      error: error.message || "Gagal membatalkan transaksi pengambilan.",
     };
   }
 }
