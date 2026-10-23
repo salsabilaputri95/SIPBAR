@@ -14,15 +14,15 @@ export default function AdminLayout({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-slate-50 overflow-hidden">
+    <div className="flex h-screen bg-slate-50 overflow-hidden print:h-auto print:overflow-visible print:bg-white print:block">
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex md:flex-shrink-0">
+      <div className="hidden md:flex md:flex-shrink-0 print:hidden">
         <AdminSidebar />
       </div>
 
       {/* Mobile Sidebar Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 flex md:hidden animate-in fade-in-50 duration-200">
+        <div className="fixed inset-0 z-50 flex md:hidden animate-in fade-in-50 duration-200 print:hidden">
           <div
             className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs"
             onClick={() => setMobileMenuOpen(false)}
@@ -43,15 +43,17 @@ export default function AdminLayout({
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <AdminHeader onOpenMobileMenu={() => setMobileMenuOpen(true)} />
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden print:overflow-visible print:block print:w-full">
+        <div className="print:hidden">
+          <AdminHeader onOpenMobileMenu={() => setMobileMenuOpen(true)} />
+        </div>
 
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 flex flex-col justify-between">
-          <div className="max-w-7xl mx-auto w-full">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 flex flex-col justify-between print:overflow-visible print:p-0 print:m-0 print:block print:w-full">
+          <div className="max-w-7xl mx-auto w-full print:max-w-none print:w-full print:m-0 print:p-0">
             {children}
           </div>
 
-          <footer className="max-w-7xl mx-auto w-full pt-8 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 border-t border-slate-200/60 mt-10">
+          <footer className="max-w-7xl mx-auto w-full pt-8 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 border-t border-slate-200/60 mt-10 print:hidden">
             <p>© {new Date().getFullYear()} Badan Pusat Statistik Kabupaten Jeneponto. SIPBAR Web v1.0.0.</p>
             <GithubBadge />
           </footer>

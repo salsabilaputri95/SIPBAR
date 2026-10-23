@@ -119,7 +119,7 @@ export async function createTandaTerima(
         data: {
           nomorDokumen,
           tanggalDokumen: new Date(),
-          kasubbagNama: input.kasubbagNama?.trim() || process.env.DEFAULT_KASUBBAG_NAMA || "Imaniar Dwi Aryanti, S.TP",
+          kasubbagNama: input.kasubbagNama?.trim() || process.env.DEFAULT_KASUBBAG_NAMA || "Imaniar Dwi Aryanti, S.T.P.",
           kasubbagNip: input.kasubbagNip?.trim() || process.env.DEFAULT_KASUBBAG_NIP || "199001012015012001",
           kasubbagJabatan: input.kasubbagJabatan?.trim() || process.env.DEFAULT_KASUBBAG_JABATAN || "Kepala Subbagian Umum BPS Kabupaten Jeneponto",
         },

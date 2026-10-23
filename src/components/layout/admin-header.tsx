@@ -16,7 +16,7 @@ export function AdminHeader({ onOpenMobileMenu }: AdminHeaderProps) {
   const user = session?.user;
 
   return (
-    <header className="h-16 border-b border-slate-200/80 bg-white/95 backdrop-blur-md px-4 md:px-6 flex items-center justify-between sticky top-0 z-30 shadow-sm">
+    <header className="h-16 border-b border-slate-200/80 bg-white/95 backdrop-blur-md px-4 md:px-6 flex items-center justify-between sticky top-0 z-30 shadow-sm print:hidden">
       <div className="flex items-center gap-3">
         {onOpenMobileMenu && (
           <Button

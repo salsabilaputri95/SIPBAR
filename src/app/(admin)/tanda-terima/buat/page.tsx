@@ -44,7 +44,7 @@ export default function BuatTandaTerimaPage() {
 
   // Signer Details
   const [signerForm, setSignerForm] = useState({
-    kasubbagNama: "Imaniar Dwi Aryanti, S.TP",
+    kasubbagNama: "Imaniar Dwi Aryanti, S.T.P.",
     kasubbagNip: "199001012015012001",
     kasubbagJabatan: "Kepala Subbagian Umum BPS Kabupaten Jeneponto",
   });

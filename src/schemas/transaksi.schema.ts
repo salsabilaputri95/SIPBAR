@@ -26,7 +26,7 @@ export type TransaksiKeluarInput = z.infer<typeof TransaksiKeluarSchema>;
 export const TandaTerimaSchema = z.object({
   tanggalDokumen: z.string().min(1, "Tanggal dokumen wajib diisi"),
   transaksiKeluarIds: z.array(z.string()).min(1, "Minimal pilih 1 transaksi barang keluar"),
-  kasubbagNama: z.string().min(2, "Nama Kasubbag Umum wajib diisi").default("Imaniar Dwi Aryanti, S.TP"),
+  kasubbagNama: z.string().min(2, "Nama Kasubbag Umum wajib diisi").default("Imaniar Dwi Aryanti, S.T.P."),
   kasubbagNip: z.string().optional().nullable().default("199001012015012001"),
   kasubbagJabatan: z.string().default("Kepala Subbagian Umum BPS Kabupaten Jeneponto"),
 });

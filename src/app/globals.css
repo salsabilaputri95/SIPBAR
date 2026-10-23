@@ -64,11 +64,20 @@
 
 /* Print Specific Rules */
 @media print {
+  @page {
+    size: auto;
+    margin: 8mm 12mm 8mm 12mm;
+  }
   body {
     background: #ffffff !important;
     color: #000000 !important;
   }
-  .no-print {
+  .no-print,
+  header,
+  nav,
+  aside,
+  footer,
+  [role="navigation"] {
     display: none !important;
   }
   .print-only {

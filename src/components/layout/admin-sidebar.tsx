@@ -73,7 +73,7 @@ export function AdminSidebar({ onCloseMobile }: AdminSidebarProps) {
   const currentRole = user?.role ? roleLabelMap[user.role] : roleLabelMap.PEGAWAI;
 
   return (
-    <aside className="w-64 bg-[#0F2F64] text-white flex flex-col h-full select-none shadow-xl">
+    <aside className="w-64 bg-[#0F2F64] text-white flex flex-col h-full select-none shadow-xl print:hidden">
       {/* Brand Header */}
       <div className="p-5 border-b border-blue-900/60 flex items-center justify-between">
         <Link href="/dashboard" className="flex items-center gap-3">
