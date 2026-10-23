@@ -24,7 +24,8 @@ import {
   TrendingDown,
   RefreshCw,
   ExternalLink,
-  Pencil
+  Pencil,
+  RotateCcw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +40,7 @@ import {
 } from "@/actions/pegawai.actions";
 import { PengambilanDialog } from "./pengambilan-dialog";
 import { EditPengambilanDialog } from "./edit-pengambilan-dialog";
+import { BatalPengambilanDialog } from "./batal-pengambilan-dialog";
 import { formatTanggal } from "@/lib/utils";
 import { GithubBadge } from "@/components/layout/github-badge";
 
@@ -56,12 +58,19 @@ export function PegawaiDashboardClient({
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<PegawaiRiwayatItem | null>(null);
+  const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
+  const [cancellingItem, setCancellingItem] = useState<PegawaiRiwayatItem | null>(null);
   const [successNotice, setSuccessNotice] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const profile = data.profile;
   const stats = data.stats;
+
+  const handleOpenCancel = (item: PegawaiRiwayatItem) => {
+    setCancellingItem(item);
+    setCancelDialogOpen(true);
+  };
 
   const handleOpenEdit = (item: PegawaiRiwayatItem) => {
     setEditingItem(item);
@@ -446,16 +455,30 @@ export function PegawaiDashboardClient({
                           )}
                         </td>
                         <td className="px-5 py-4 text-center whitespace-nowrap">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleOpenEdit(item)}
-                            className="h-8 px-2.5 rounded-lg border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-sky-50 hover:border-sky-200 gap-1.5 text-xs font-semibold shadow-2xs transition-all"
-                            title="Edit data pengambilan ini"
-                          >
-                            <Pencil className="w-3.5 h-3.5 text-sky-600" />
-                            <span>Edit</span>
-                          </Button>
+                          <div className="flex items-center justify-center gap-1.5">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleOpenEdit(item)}
+                              className="h-8 px-2.5 rounded-lg border-slate-200 text-slate-700 hover:text-sky-700 hover:bg-sky-50 hover:border-sky-200 gap-1.5 text-xs font-semibold shadow-2xs transition-all"
+                              title="Edit data pengambilan ini"
+                            >
+                              <Pencil className="w-3.5 h-3.5 text-sky-600" />
+                              <span>Edit</span>
+                            </Button>
+
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleOpenCancel(item)}
+                              disabled={!!item.tandaTerimaNomor}
+                              className="h-8 px-2.5 rounded-lg border-red-200 text-red-600 hover:text-red-700 hover:bg-red-50 hover:border-red-300 gap-1.5 text-xs font-semibold shadow-2xs transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                              title={item.tandaTerimaNomor ? "Tidak dapat dibatalkan karena sudah masuk Tanda Terima resmi" : "Batalkan pengambilan barang ini"}
+                            >
+                              <RotateCcw className="w-3.5 h-3.5 text-red-500" />
+                              <span>Batalkan</span>
+                            </Button>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -481,6 +504,14 @@ export function PegawaiDashboardClient({
         onOpenChange={setEditDialogOpen}
         item={editingItem}
         availableItems={availableItems}
+        onSuccess={handleSuccessPengambilan}
+      />
+
+      {/* Modal / Dialog Konfirmasi Pembatalan Pengambilan Barang */}
+      <BatalPengambilanDialog
+        open={cancelDialogOpen}
+        onOpenChange={setCancelDialogOpen}
+        item={cancellingItem}
         onSuccess={handleSuccessPengambilan}
       />
 

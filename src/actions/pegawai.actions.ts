@@ -708,19 +708,36 @@ export async function hapusPengambilanMandiri(transaksiId: string): Promise<Acti
     }
 
     // Rollback stok & hapus transaksi secara ACID
-    await prisma.$transaction(async (tx) => {
-      await tx.barang.update({
-        where: { id: existingTx.barangId },
-        data: {
-          stok: {
-            increment: existingTx.jumlahKeluar,
-          },
+    const result = await prisma.$transaction(async (tx) => {
+      // 1. Cek ulang transaksi di dalam transaksi database untuk mencegah double-cancellation
+      const txToCancel = await tx.transaksiKeluar.findUnique({
+        where: { id: transaksiId },
+        include: {
+          barang: { include: { satuan: true } },
         },
       });
 
+      if (!txToCancel) {
+        throw new Error("Transaksi sudah pernah dibatalkan atau tidak ditemukan.");
+      }
+
+      // 2. Kembalikan stok ke barang secara otomatis
+      const updatedBarang = await tx.barang.update({
+        where: { id: txToCancel.barangId },
+        data: {
+          stok: {
+            increment: txToCancel.jumlahKeluar,
+          },
+        },
+        include: { satuan: true },
+      });
+
+      // 3. Hapus transaksi keluar
       await tx.transaksiKeluar.delete({
         where: { id: transaksiId },
       });
+
+      return { txToCancel, updatedBarang };
     });
 
     revalidatePath("/pegawai");
@@ -731,7 +748,8 @@ export async function hapusPengambilanMandiri(transaksiId: string): Promise<Acti
 
     return {
       success: true,
-      message: `Transaksi ${existingTx.kodeTransaksi} berhasil dibatalkan dan ${existingTx.jumlahKeluar} ${existingTx.barang.satuan.nama} telah dikembalikan ke stok fisik gudang.`,
+      message: `Pengambilan ${result.txToCancel.barang.namaBarang} (${result.txToCancel.kodeTransaksi}) berhasil dibatalkan. ${result.txToCancel.jumlahKeluar} ${result.txToCancel.barang.satuan.nama} telah otomatis dikembalikan ke katalog persediaan (Stok saat ini: ${result.updatedBarang.stok} ${result.updatedBarang.satuan.nama}).`,
+      data: result,
     };
   } catch (error: any) {
     return {
