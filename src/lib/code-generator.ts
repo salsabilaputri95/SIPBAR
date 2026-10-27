@@ -23,13 +23,41 @@ export async function generateKodeBarang(): Promise<string> {
 }
 
 /**
- * Menghasilkan Kode Transaksi Masuk (Format: BM-YYYYMM-xxxx)
+ * Menghasilkan Kode Transaksi Masuk
+ * - Tahun <= 2026: Format sekuensial historis BPS (BM-1000xxx)
+ * - Tahun >= 2027: Format berbasis periode bulan (BM-YYYYMM-xxxx)
  */
 export async function generateKodeTransaksiMasuk(): Promise<string> {
   const now = new Date();
-  const year = now.getFullYear();
+  const currentYear = now.getFullYear();
+
+  // 1. Tahun 2026 dan sebelumnya: Tetap pakai pola kode historis BPS (BM-1000xxx)
+  if (currentYear <= 2026) {
+    const latest = await prisma.transaksiMasuk.findFirst({
+      where: {
+        kodeTransaksi: {
+          startsWith: "BM-1",
+        },
+      },
+      orderBy: {
+        kodeTransaksi: "desc",
+      },
+      select: { kodeTransaksi: true },
+    });
+
+    let nextNum = 1000650; // Melanjutkan setelah max data historis Excel (BM-1000649)
+    if (latest && latest.kodeTransaksi) {
+      const match = latest.kodeTransaksi.match(/BM-(\d+)/);
+      if (match) {
+        nextNum = Math.max(nextNum, parseInt(match[1], 10) + 1);
+      }
+    }
+    return `BM-${nextNum}`;
+  }
+
+  // 2. Tahun 2027 dan seterusnya: Menggunakan format periodik (BM-YYYYMM-xxxx)
   const month = String(now.getMonth() + 1).padStart(2, "0");
-  const prefix = `BM-${year}${month}-`;
+  const prefix = `BM-${currentYear}${month}-`;
 
   const countThisMonth = await prisma.transaksiMasuk.count({
     where: {
@@ -44,13 +72,41 @@ export async function generateKodeTransaksiMasuk(): Promise<string> {
 }
 
 /**
- * Menghasilkan Kode Transaksi Keluar (Format: BK-YYYYMM-xxxx)
+ * Menghasilkan Kode Transaksi Keluar
+ * - Tahun <= 2026: Format sekuensial historis BPS (BK-1000xxx)
+ * - Tahun >= 2027: Format berbasis periode bulan (BK-YYYYMM-xxxx)
  */
 export async function generateKodeTransaksiKeluar(): Promise<string> {
   const now = new Date();
-  const year = now.getFullYear();
+  const currentYear = now.getFullYear();
+
+  // 1. Tahun 2026 dan sebelumnya: Tetap pakai pola kode historis BPS (BK-1000xxx)
+  if (currentYear <= 2026) {
+    const latest = await prisma.transaksiKeluar.findFirst({
+      where: {
+        kodeTransaksi: {
+          startsWith: "BK-1",
+        },
+      },
+      orderBy: {
+        kodeTransaksi: "desc",
+      },
+      select: { kodeTransaksi: true },
+    });
+
+    let nextNum = 1000535; // Melanjutkan setelah max data historis Excel (BK-1000534)
+    if (latest && latest.kodeTransaksi) {
+      const match = latest.kodeTransaksi.match(/BK-(\d+)/);
+      if (match) {
+        nextNum = Math.max(nextNum, parseInt(match[1], 10) + 1);
+      }
+    }
+    return `BK-${nextNum}`;
+  }
+
+  // 2. Tahun 2027 dan seterusnya: Menggunakan format periodik (BK-YYYYMM-xxxx)
   const month = String(now.getMonth() + 1).padStart(2, "0");
-  const prefix = `BK-${year}${month}-`;
+  const prefix = `BK-${currentYear}${month}-`;
 
   const countThisMonth = await prisma.transaksiKeluar.count({
     where: {
