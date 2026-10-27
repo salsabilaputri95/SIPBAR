@@ -13,7 +13,6 @@ import {
   ArrowRight, 
   AlertCircle, 
   Boxes, 
-  CheckCircle2, 
   ShieldCheck,
   PackageCheck
 } from "lucide-react";
@@ -82,11 +81,6 @@ function LoginForm() {
     }
   };
 
-  const handleFillAccount = (user: string, pass: string) => {
-    setUsername(user);
-    setPassword(pass);
-    setErrorMessage("");
-  };
 
   return (
     <Card className="border-slate-200/90 shadow-xl shadow-slate-200/60 bg-white rounded-2xl overflow-hidden">
@@ -180,43 +174,11 @@ function LoginForm() {
             )}
           </Button>
         </form>
-
-        {/* Demo Account Helper Bar */}
-        <div className="mt-6 pt-5 border-t border-slate-100">
-          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-center mb-2.5">
-            Akses Cepat Masuk Akun
-          </p>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => handleFillAccount("adminsipbar", "adminsipbar!")}
-              className="text-left p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-blue-50 hover:border-blue-300 transition-colors group"
-            >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-[#0F2F64]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0F2F64]" />
-                Administrator SIPBAR
-              </div>
-              <p className="text-[10px] text-slate-500 mt-0.5 truncate font-mono">adminsipbar</p>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleFillAccount("imaniar", "ima361")}
-              className="text-left p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-sky-50 hover:border-sky-300 transition-colors group"
-            >
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 group-hover:text-sky-800">
-                <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
-                Pegawai (Imaniar)
-              </div>
-              <p className="text-[10px] text-slate-500 mt-0.5 truncate font-mono">imaniar</p>
-            </button>
-          </div>
-        </div>
       </CardContent>
 
       <CardFooter className="bg-slate-50/70 border-t border-slate-100 px-6 py-4 flex items-center justify-center">
         <p className="text-xs text-slate-500 text-center">
-          Lupa kata sandi? Hubungi Tim IT / Super Admin BPS Kabupaten Jeneponto.
+          Lupa kata sandi? Hubungi Tim IT / Admin BPS Kabupaten Jeneponto.
         </p>
       </CardFooter>
     </Card>
