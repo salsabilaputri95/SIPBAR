@@ -215,7 +215,7 @@ export default function UsersManagementPage() {
   const getRoleBadge = (role: string) => {
     switch (role) {
       case "SUPER_ADMIN":
-        return <Badge className="bg-[#0F2F64] text-white hover:bg-[#0F2F64]/90 text-[11px] font-bold">Super Admin IT</Badge>;
+        return <Badge className="bg-[#0F2F64] text-white hover:bg-[#0F2F64]/90 text-[11px] font-bold">Admin</Badge>;
       case "ADMIN_GUDANG":
         return <Badge className="bg-[#0284C7] text-white hover:bg-[#0284C7]/90 text-[11px] font-bold">Admin Gudang</Badge>;
       default:
@@ -292,7 +292,7 @@ export default function UsersManagementPage() {
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
             {[
               { id: "ALL", label: "Semua" },
-              { id: "SUPER_ADMIN", label: "Super Admin" },
+              { id: "SUPER_ADMIN", label: "Admin" },
               { id: "ADMIN_GUDANG", label: "Admin Gudang" },
               { id: "PEGAWAI", label: "Pegawai" },
             ].map((tab) => (
@@ -511,7 +511,7 @@ export default function UsersManagementPage() {
                 >
                   <option value="PEGAWAI">Pegawai</option>
                   <option value="ADMIN_GUDANG">Admin Gudang</option>
-                  <option value="SUPER_ADMIN">Super Admin IT</option>
+                  <option value="SUPER_ADMIN">Admin</option>
                 </select>
               </div>
 
@@ -587,7 +587,7 @@ export default function UsersManagementPage() {
                 >
                   <option value="PEGAWAI">Pegawai</option>
                   <option value="ADMIN_GUDANG">Admin Gudang</option>
-                  <option value="SUPER_ADMIN">Super Admin IT</option>
+                  <option value="SUPER_ADMIN">Admin</option>
                 </select>
               </div>
 

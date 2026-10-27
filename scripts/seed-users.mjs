@@ -41,13 +41,14 @@ async function main() {
       where: { username: "adminsipbar" },
       update: {
         name: "Administrator SIPBAR",
+        nip: null,
         password: adminPasswordHash,
         role: Role.SUPER_ADMIN,
       },
       create: {
         username: "adminsipbar",
         name: "Administrator SIPBAR",
-        nip: "199501012018011001",
+        nip: null,
         password: adminPasswordHash,
         role: Role.SUPER_ADMIN,
         fungsiId: umumFungsi.id,

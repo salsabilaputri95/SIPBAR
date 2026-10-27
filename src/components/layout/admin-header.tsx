@@ -46,13 +46,12 @@ export function AdminHeader({ onOpenMobileMenu }: AdminHeaderProps) {
           className="text-xs font-semibold bg-sky-50 text-sky-800 border-sky-200 px-2.5 py-1 flex items-center gap-1"
         >
           <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
-          <span>{user?.role === "SUPER_ADMIN" ? "Super Admin IT" : "Admin Gudang"}</span>
+          <span>{user?.role === "SUPER_ADMIN" ? "Admin" : (user?.role === "ADMIN_GUDANG" ? "Admin Gudang" : "Pegawai")}</span>
         </Badge>
 
         <div className="flex items-center gap-2 border-l border-slate-200 pl-3">
           <div className="text-right hidden sm:block">
             <p className="text-xs font-bold text-slate-800 leading-tight">{user?.name || "Pengguna"}</p>
-            <p className="text-[11px] text-slate-500">{user?.nip ? `NIP. ${user.nip}` : user?.username}</p>
           </div>
 
           <Button

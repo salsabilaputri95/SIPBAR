@@ -65,7 +65,7 @@ export function AdminSidebar({ onCloseMobile }: AdminSidebarProps) {
   }
 
   const roleLabelMap = {
-    SUPER_ADMIN: { label: "Super Admin IT", color: "bg-blue-100 text-[#0F2F64] border-blue-200" },
+    SUPER_ADMIN: { label: "Admin", color: "bg-blue-100 text-[#0F2F64] border-blue-200" },
     ADMIN_GUDANG: { label: "Admin Gudang", color: "bg-sky-100 text-sky-800 border-sky-200" },
     PEGAWAI: { label: "Pegawai BPS", color: "bg-slate-100 text-slate-700 border-slate-200" },
   };
@@ -138,11 +138,9 @@ export function AdminSidebar({ onCloseMobile }: AdminSidebarProps) {
             <div className="min-w-0">
               <p className="text-xs font-semibold text-white truncate">{user?.name || "Pengguna"}</p>
               <div className="flex items-center gap-1 mt-0.5">
-                <span className="text-[10px] text-blue-200 truncate">
-                  {user?.fungsiNama || (user?.role === "SUPER_ADMIN" ? "IT" : "UMUM")}
+                <span className="text-[10px] text-amber-300 font-semibold">
+                  {user?.role === "SUPER_ADMIN" ? "Admin" : (user?.role === "ADMIN_GUDANG" ? "Admin Gudang" : "Pegawai")}
                 </span>
-                <span className="text-[10px] text-blue-400">•</span>
-                <span className="text-[10px] text-amber-300 font-semibold">{user?.role === "SUPER_ADMIN" ? "Super Admin" : "Admin"}</span>
               </div>
             </div>
           </div>
